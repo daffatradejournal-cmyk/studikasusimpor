@@ -1,11 +1,11 @@
 'use client';
 
 import React from 'react';
-import { ShoppingBag, BarChart3, Ship, Network, Database, GraduationCap } from 'lucide-react';
+import { ShoppingBag, Globe, Ship, BarChart3 } from 'lucide-react';
 
 interface NavigationTabsProps {
-  activeTab: 'katalog' | 'dashboard' | 'ongkir' | 'arsitektur' | 'sql';
-  onTabChange: (tab: 'katalog' | 'dashboard' | 'ongkir' | 'arsitektur' | 'sql') => void;
+  activeTab: 'katalog' | 'ekspor' | 'dashboard' | 'ongkir' | 'arsitektur' | 'sql';
+  onTabChange: (tab: 'katalog' | 'ekspor' | 'dashboard' | 'ongkir' | 'arsitektur' | 'sql') => void;
   orderCount: number;
 }
 
@@ -17,38 +17,31 @@ export const NavigationTabs: React.FC<NavigationTabsProps> = ({
   const tabs = [
     {
       id: 'katalog' as const,
-      label: 'Katalog Komoditas & UMKM Inhil',
+      label: 'Katalog Komoditas Ekspor',
       shortLabel: 'Katalog',
       icon: ShoppingBag,
       badge: '11 Komoditas',
     },
     {
-      id: 'dashboard' as const,
-      label: 'Seller Centre & Analitik UMKM',
-      shortLabel: 'Seller Centre',
-      icon: BarChart3,
-      badge: `${orderCount} Pesanan`,
+      id: 'ekspor' as const,
+      label: 'Hub Pasar Ekspor Dunia',
+      shortLabel: 'Pasar Global',
+      icon: Globe,
+      badge: 'Global B2B & RFQ',
     },
     {
       id: 'ongkir' as const,
-      label: 'Kalkulator Ongkir Jalur Sungai & Darat',
-      shortLabel: 'Logistik Inhil',
+      label: 'Kargo Sungai & Pelabuhan',
+      shortLabel: 'Logistik',
       icon: Ship,
-      badge: 'Speedboat & Pompong',
+      badge: 'Kuala Enok & Parit 21',
     },
     {
-      id: 'arsitektur' as const,
-      label: 'Blueprint Arsitektur & Peran S1 SI',
-      shortLabel: 'Arsitektur SI',
-      icon: Network,
-      badge: 'BPMN & API',
-    },
-    {
-      id: 'sql' as const,
-      label: 'Skema Database Relasional (DDL)',
-      shortLabel: 'DDL SQL',
-      icon: Database,
-      badge: 'PostgreSQL / MySQL',
+      id: 'dashboard' as const,
+      label: 'Seller Centre Petani & UMKM',
+      shortLabel: 'Seller Centre',
+      icon: BarChart3,
+      badge: `${orderCount} Pesanan`,
     },
   ];
 

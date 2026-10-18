@@ -12,22 +12,13 @@ import { ShippingCalculator } from '@/components/ShippingCalculator';
 import { UmkmDashboard } from '@/components/UmkmDashboard';
 import { ArchitectureModal } from '@/components/ArchitectureModal';
 import { SqlSchemaViewer } from '@/components/SqlSchemaViewer';
-import { SiRoleExplainer } from '@/components/SiRoleExplainer';
+import { GlobalExportHub } from '@/components/GlobalExportHub';
 import { Footer } from '@/components/Footer';
 import { CheckCircle2 } from 'lucide-react';
 
 export default function Home() {
   const store = usePasarStore();
   const [isArchitectureOpen, setIsArchitectureOpen] = useState(false);
-  const [isSiRoleExpanded, setIsSiRoleExpanded] = useState(true);
-
-  const handleOpenSiRole = () => {
-    setIsSiRoleExpanded(true);
-    const element = document.getElementById('si-role-explainer');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  };
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 text-slate-800 font-sans selection:bg-emerald-100 selection:text-emerald-800">
@@ -49,7 +40,6 @@ export default function Home() {
         onSearchChange={store.setSearchQuery}
         onResetData={store.resetDemoData}
         onOpenArchitecture={() => setIsArchitectureOpen(true)}
-        onOpenSiRole={handleOpenSiRole}
       />
 
       {/* Navigation Sub-Tabs */}
@@ -61,12 +51,6 @@ export default function Home() {
 
       {/* Main Body Content Container */}
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 space-y-6">
-        {/* S1 Sistem Informasi Role Explainer Accordion */}
-        <SiRoleExplainer
-          isExpanded={isSiRoleExpanded}
-          onToggle={() => setIsSiRoleExpanded(!isSiRoleExpanded)}
-        />
-
         {store.activeTab === 'katalog' && (
           <CommodityCatalog
             commodities={store.commodities}
@@ -76,8 +60,11 @@ export default function Home() {
             onAddToCart={store.addToCart}
             onSelectProduct={store.setSelectedProduct}
             onOpenShippingCalculator={() => store.setActiveTab('ongkir')}
+            onOpenExportHub={() => store.setActiveTab('ekspor')}
           />
         )}
+
+        {store.activeTab === 'ekspor' && <GlobalExportHub />}
 
         {store.activeTab === 'dashboard' && (
           <UmkmDashboard

@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { ShoppingBag, Search, MapPin, Sparkles, RefreshCw, GraduationCap } from 'lucide-react';
+import { ShoppingBag, Search, MapPin, Globe, RefreshCw } from 'lucide-react';
 import { CartItem } from '../lib/types';
 
 interface HeaderProps {
@@ -11,7 +11,6 @@ interface HeaderProps {
   onSearchChange: (query: string) => void;
   onResetData: () => void;
   onOpenArchitecture: () => void;
-  onOpenSiRole?: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -21,7 +20,6 @@ export const Header: React.FC<HeaderProps> = ({
   onSearchChange,
   onResetData,
   onOpenArchitecture,
-  onOpenSiRole,
 }) => {
   const totalCartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
 
@@ -40,29 +38,22 @@ export const Header: React.FC<HeaderProps> = ({
       {/* Top Bar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-1.5 flex items-center justify-between text-xs border-b border-white/15">
         <div className="flex items-center gap-2 sm:gap-3">
-          <button
-            onClick={onOpenSiRole}
-            className="flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/20 hover:bg-white/30 text-white font-semibold transition-colors text-[11px]"
-          >
-            <GraduationCap className="w-3.5 h-3.5 text-lime-300" />
-            <span>S1 Sistem Informasi UNISI</span>
-          </button>
+          <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/20 text-white font-bold text-[11px] shadow-xs">
+            <Globe className="w-3.5 h-3.5 text-lime-300" />
+            <span>Pasar Komoditas & Ekspor Global</span>
+          </div>
           <span className="text-white/40 hidden sm:inline">|</span>
           <span className="hidden sm:flex items-center gap-1 text-emerald-100 text-[11px]">
             <MapPin className="w-3 h-3 text-lime-300" />
-            Indragiri Hilir — Negeri Hamparan Kelapa Dunia
+            Tembilahan, Indragiri Hilir — Gerbang Ekspor Parit 21 & Pelabuhan Kuala Enok
           </span>
         </div>
 
-        <div className="flex items-center gap-2.5 text-[11px]">
-          <button
-            onClick={onOpenArchitecture}
-            className="flex items-center gap-1 hover:text-lime-200 transition-colors font-medium"
-          >
-            <Sparkles className="w-3 h-3 text-lime-300" />
-            <span>Dokumentasi Arsitektur</span>
-          </button>
-          <span className="text-white/40">|</span>
+        <div className="flex items-center gap-3 text-[11px]">
+          <div className="hidden md:flex items-center gap-1.5 bg-white/10 px-2.5 py-0.5 rounded-full text-emerald-100 font-medium">
+            <span>🌏 Jalur Ekspor: SGP • MYS • CHN • MEA</span>
+          </div>
+          <span className="text-white/40 hidden md:inline">|</span>
           <button
             onClick={onResetData}
             title="Reset simulasi ke data awal"
@@ -90,11 +81,11 @@ export const Header: React.FC<HeaderProps> = ({
                 Pasar<span className="text-lime-300">Tembilahan</span>
               </span>
               <span className="bg-lime-400 text-emerald-950 font-extrabold text-[10px] px-2 py-0.5 rounded-full uppercase tracking-wider">
-                KOMODITAS
+                EKSPOR & GLOBAL
               </span>
             </div>
             <p className="text-[11px] text-emerald-100 font-medium hidden sm:block mt-0.5">
-              Platform E-Commerce & Logistik Perairan UMKM Inhil
+              Penghubung Komoditas Kelapa & UMKM Tembilahan ke Pasar Dunia
             </p>
           </div>
         </div>

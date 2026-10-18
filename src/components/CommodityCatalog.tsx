@@ -18,6 +18,7 @@ import {
   Flame,
   BadgePercent,
   Award,
+  Globe,
   Leaf,
 } from 'lucide-react';
 import { Commodity, CategoryId } from '../lib/types';
@@ -31,6 +32,7 @@ interface CommodityCatalogProps {
   onAddToCart: (commodity: Commodity, qty?: number) => void;
   onSelectProduct: (commodity: Commodity) => void;
   onOpenShippingCalculator: () => void;
+  onOpenExportHub?: () => void;
 }
 
 export const CommodityCatalog: React.FC<CommodityCatalogProps> = ({
@@ -41,6 +43,7 @@ export const CommodityCatalog: React.FC<CommodityCatalogProps> = ({
   onAddToCart,
   onSelectProduct,
   onOpenShippingCalculator,
+  onOpenExportHub,
 }) => {
   const [sortBy, setSortBy] = useState<'popular' | 'latest' | 'top_sales' | 'price_low' | 'price_high'>('popular');
 
@@ -79,73 +82,88 @@ export const CommodityCatalog: React.FC<CommodityCatalogProps> = ({
 
   return (
     <div className="space-y-6">
-      {/* Hero Promotional Banner Section (Organic Rounded-3xl Curves) */}
+      {/* Hero Global Marketplace Banner (Organic Rounded-3xl Curves) */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         {/* Main Banner (2 Cols) */}
-        <div className="lg:col-span-2 relative bg-gradient-to-br from-emerald-700 via-emerald-600 to-teal-700 text-white p-6 sm:p-8 rounded-3xl shadow-soft overflow-hidden flex flex-col justify-between min-h-[210px]">
-          <div className="absolute -right-12 -bottom-12 w-64 h-64 bg-white/10 rounded-full blur-2xl pointer-events-none" />
+        <div className="lg:col-span-2 relative bg-gradient-to-br from-emerald-800 via-emerald-700 to-teal-800 text-white p-6 sm:p-8 rounded-3xl shadow-soft overflow-hidden flex flex-col justify-between min-h-[220px]">
+          <div className="absolute -right-12 -bottom-12 w-72 h-72 bg-white/10 rounded-full blur-2xl pointer-events-none" />
           <div className="space-y-3 relative z-10 max-w-xl">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-white/20 backdrop-blur-xs text-white text-xs font-bold rounded-full">
-              <Leaf className="w-3.5 h-3.5 text-lime-300" />
-              <span>Sentra Hilirisasi Komoditas Pertanian & Perkebunan Inhil</span>
+              <Globe className="w-3.5 h-3.5 text-lime-300" />
+              <span>Pasar Komoditas Global & Ekspor Indragiri Hilir</span>
             </div>
             <h1 className="text-2xl sm:text-3xl font-extrabold text-white leading-tight">
-              Katalog Komoditas Petani & UMKM <span className="text-lime-300">Indragiri Hilir</span>
+              Komoditas Tembilahan <span className="text-lime-300">Menembus Pasar Dunia</span>
             </h1>
             <p className="text-xs sm:text-sm text-emerald-50 leading-relaxed">
-              Hub langsung petani kelapa parit, perkebunan lahan gambut, dan kuliner pesisir Tembilahan. Memotong rantai perantara tengkulak dengan perhitungan logistik perairan sungai.
+              Platform e-commerce & rantai pasok digital: Menghubungkan langsung petani kelapa, sentra kopra putih, produsen VCO, kopi liberika gambut, dan UMKM Tembilahan ke pembeli nasional serta importir mancanegara.
             </p>
           </div>
 
           <div className="pt-4 flex flex-wrap items-center gap-3 relative z-10">
+            {onOpenExportHub && (
+              <button
+                onClick={onOpenExportHub}
+                className="px-4 py-2.5 bg-lime-400 hover:bg-lime-300 text-emerald-950 font-extrabold text-xs rounded-full shadow-md transition-all hover:scale-105 flex items-center gap-2"
+              >
+                <Globe className="w-4 h-4" />
+                <span>Pusat Ekspor & Kuotasi Kontainer</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            )}
             <button
               onClick={onOpenShippingCalculator}
-              className="px-4 py-2.5 bg-lime-400 hover:bg-lime-300 text-emerald-950 font-extrabold text-xs rounded-full shadow-md transition-all hover:scale-105 flex items-center gap-2"
+              className="px-4 py-2.5 bg-white/20 hover:bg-white/30 text-white font-bold text-xs rounded-full transition-all flex items-center gap-2 backdrop-blur-xs"
             >
-              <Ship className="w-4 h-4" />
-              <span>Simulasi Ongkir Jalur Sungai & Darat</span>
-              <ArrowRight className="w-4 h-4" />
+              <Ship className="w-4 h-4 text-lime-300" />
+              <span>Kalkulator Kargo Sungai-Laut</span>
             </button>
-            <span className="text-xs text-emerald-100 bg-white/15 px-3 py-1.5 rounded-full">
-              38 Mitra Koperasi Tani Aktif
+            <span className="text-xs text-emerald-100 bg-emerald-900/40 px-3 py-1.5 rounded-full border border-emerald-500/30">
+              🌍 8 Negara Tujuan Ekspor
             </span>
           </div>
         </div>
 
         {/* 2 Side Cards (Smooth Rounded-2xl) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3">
-          {/* Card 1: Free Shipping Jalur Air */}
-          <div className="bg-white p-4 rounded-2xl border border-emerald-100 shadow-soft flex items-center gap-3 hover:border-emerald-300 transition-colors">
+          {/* Card 1: Ekspor Dunia */}
+          <div
+            onClick={onOpenExportHub}
+            className="bg-white p-4 rounded-2xl border border-emerald-100 shadow-soft flex items-center gap-3 hover:border-emerald-300 hover:bg-emerald-50/20 transition-all cursor-pointer"
+          >
             <div className="w-12 h-12 rounded-2xl bg-emerald-100/80 text-emerald-700 flex items-center justify-center shrink-0">
-              <Ship className="w-6 h-6" />
+              <Globe className="w-6 h-6" />
             </div>
             <div>
               <span className="text-[10px] font-extrabold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full uppercase tracking-wider inline-block mb-1">
-                JALUR AIR INHIL
+                KONTRAK EKSPOR
               </span>
               <h4 className="font-bold text-xs text-slate-800">
-                Pompong Parit 21 & Speedboat
+                Singapura, Malaysia, & MEA
               </h4>
               <p className="text-[11px] text-slate-500">
-                Menjangkau Mandah, Kuindra, & Enok
+                Pilihan partai besar / kontainer FCL & LCL
               </p>
             </div>
           </div>
 
-          {/* Card 2: Harga Petani Asli */}
-          <div className="bg-white p-4 rounded-2xl border border-emerald-100 shadow-soft flex items-center gap-3 hover:border-emerald-300 transition-colors">
+          {/* Card 2: Logistik Perairan Multimodal */}
+          <div
+            onClick={onOpenShippingCalculator}
+            className="bg-white p-4 rounded-2xl border border-emerald-100 shadow-soft flex items-center gap-3 hover:border-emerald-300 hover:bg-emerald-50/20 transition-all cursor-pointer"
+          >
             <div className="w-12 h-12 rounded-2xl bg-lime-100 text-lime-800 flex items-center justify-center shrink-0">
-              <BadgePercent className="w-6 h-6" />
+              <Ship className="w-6 h-6" />
             </div>
             <div>
               <span className="text-[10px] font-extrabold text-lime-800 bg-lime-50 px-2 py-0.5 rounded-full uppercase tracking-wider inline-block mb-1">
-                HARGA KEBUN ASLI
+                PELABUHAN MUAT
               </span>
               <h4 className="font-bold text-xs text-slate-800">
-                Tanpa Rantai Tengkulak
+                Kuala Enok & Parit 21
               </h4>
               <p className="text-[11px] text-slate-500">
-                Margin transparan langsung ke petani
+                Dari sampan parit ke kapal kontainer laut
               </p>
             </div>
           </div>

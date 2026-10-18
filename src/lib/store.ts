@@ -17,7 +17,7 @@ export function usePasarStore() {
   const [selectedCategory, setSelectedCategory] = useState<CategoryId | 'all'>('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState<'katalog' | 'dashboard' | 'ongkir' | 'arsitektur' | 'sql'>('katalog');
+  const [activeTab, setActiveTab] = useState<'katalog' | 'ekspor' | 'dashboard' | 'ongkir' | 'arsitektur' | 'sql'>('katalog');
   const [selectedProduct, setSelectedProduct] = useState<Commodity | null>(null);
   const [activePaymentOrder, setActivePaymentOrder] = useState<Order | null>(null);
   const [toastMessage, setToastMessage] = useState<string | null>(null);

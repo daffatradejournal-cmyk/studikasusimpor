@@ -4,7 +4,7 @@ import React from 'react';
 import { Palmtree, GraduationCap, MapPin, ShieldCheck, Heart } from 'lucide-react';
 
 interface FooterProps {
-  onSelectTab: (tab: 'katalog' | 'dashboard' | 'ongkir' | 'arsitektur' | 'sql') => void;
+  onSelectTab: (tab: 'katalog' | 'ekspor' | 'dashboard' | 'ongkir' | 'arsitektur' | 'sql') => void;
 }
 
 export const Footer: React.FC<FooterProps> = ({ onSelectTab }) => {
@@ -16,14 +16,14 @@ export const Footer: React.FC<FooterProps> = ({ onSelectTab }) => {
           {/* Col 1 */}
           <div className="space-y-2.5">
             <h4 className="font-bold text-slate-900 text-xs uppercase tracking-wider">
-              LAYANAN PELANGGAN
+              LAYANAN PELANGGAN & EKSPOR
             </h4>
             <ul className="space-y-1.5 text-[11px]">
               <li><span className="hover:text-emerald-700 cursor-pointer transition-colors">Pusat Bantuan PasarTembilahan</span></li>
-              <li><span className="hover:text-emerald-700 cursor-pointer transition-colors">Metode Pembayaran Midtrans Snap</span></li>
-              <li><span className="hover:text-emerald-700 cursor-pointer transition-colors">Pelacakan Pesanan & Resi Pengiriman</span></li>
+              <li><span className="hover:text-emerald-700 cursor-pointer transition-colors">Desk Konsultasi Ekspor B2B & Kontainer</span></li>
+              <li><span className="hover:text-emerald-700 cursor-pointer transition-colors">Metode Pembayaran Midtrans & L/C</span></li>
+              <li><span className="hover:text-emerald-700 cursor-pointer transition-colors">Pelacakan Kargo Sungai & Samudera</span></li>
               <li><span className="hover:text-emerald-700 cursor-pointer transition-colors">Garansi Komoditas Petani Langsung</span></li>
-              <li><span className="hover:text-emerald-700 cursor-pointer transition-colors">Hubungi Koperasi Sentra Parit</span></li>
             </ul>
           </div>
 
@@ -35,27 +35,27 @@ export const Footer: React.FC<FooterProps> = ({ onSelectTab }) => {
             <ul className="space-y-1.5 text-[11px]">
               <li>
                 <button onClick={() => onSelectTab('katalog')} className="hover:text-emerald-700 text-left transition-colors">
-                  Katalog Komoditas Multi-Kategori
+                  Katalog Komoditas Ekspor & UMKM
                 </button>
               </li>
               <li>
-                <button onClick={() => onSelectTab('dashboard')} className="hover:text-emerald-700 text-left transition-colors">
-                  Seller Centre UMKM & Koperasi
+                <button onClick={() => onSelectTab('ekspor')} className="hover:text-emerald-700 text-left transition-colors font-bold text-emerald-800">
+                  Hub Pasar Ekspor Dunia (B2B & RFQ)
                 </button>
               </li>
               <li>
                 <button onClick={() => onSelectTab('ongkir')} className="hover:text-emerald-700 text-left transition-colors">
-                  Kalkulator Ongkir Jalur Sungai Inhil
+                  Kalkulator Kargo Sungai-Laut Inhil
                 </button>
               </li>
               <li>
-                <button onClick={() => onSelectTab('arsitektur')} className="hover:text-emerald-700 text-left transition-colors">
-                  Blueprint Rekayasa Sistem & API
+                <button onClick={() => onSelectTab('dashboard')} className="hover:text-emerald-700 text-left transition-colors">
+                  Seller Centre Petani & Koperasi
                 </button>
               </li>
               <li>
-                <button onClick={() => onSelectTab('sql')} className="hover:text-emerald-700 text-left transition-colors">
-                  Skema Relational Database (SQL)
+                <button onClick={() => onSelectTab('arsitektur')} className="hover:text-emerald-700 text-left transition-colors text-slate-400">
+                  Spesifikasi Teknis & Arsitektur API
                 </button>
               </li>
             </ul>
@@ -101,20 +101,20 @@ export const Footer: React.FC<FooterProps> = ({ onSelectTab }) => {
             </div>
           </div>
 
-          {/* Col 4: Pengembang & Kampus */}
+          {/* Col 4: Pusat Komoditas & Wilayah */}
           <div className="space-y-2.5">
             <h4 className="font-bold text-slate-900 text-xs uppercase tracking-wider">
-              PENGEMBANG & INSTITUSI
+              HUB PERDAGANGAN & EKSPOR
             </h4>
             <div className="space-y-1 text-[11px]">
               <p className="font-bold text-slate-900 flex items-center gap-1.5">
-                <GraduationCap className="w-4 h-4 text-emerald-600" />
-                Muhammad Daffa
+                <MapPin className="w-4 h-4 text-emerald-600" />
+                Indragiri Hilir, Riau, Indonesia
               </p>
-              <p className="text-slate-600 font-medium">S1 Sistem Informasi</p>
-              <p className="text-emerald-700 font-bold">Universitas Islam Indragiri (UNISI)</p>
+              <p className="text-slate-600 font-medium">Sentra Kelapa Terbesar di Dunia</p>
+              <p className="text-emerald-700 font-bold">Pelabuhan Samudera Kuala Enok & Parit 21</p>
               <p className="text-slate-500 pt-1">
-                Tembilahan, Indragiri Hilir, Riau — <em>Negeri Hamparan Kelapa Dunia</em>
+                Karya Inisiatif Digitalisasi Rantai Pasok oleh <strong>Muhammad Daffa</strong> • UNISI.
               </p>
             </div>
           </div>
@@ -122,11 +122,11 @@ export const Footer: React.FC<FooterProps> = ({ onSelectTab }) => {
 
         {/* Bottom Bar */}
         <div className="pt-6 mt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] text-slate-500">
-          <p>© 2026 PasarTembilahan. Platform E-Commerce Komoditas & UMKM Indragiri Hilir • S1 SI UNISI.</p>
+          <p>© 2026 PasarTembilahan Global. Platform E-Commerce & Perdagangan Komoditas Ekspor Menuju Pasar Dunia.</p>
           <div className="flex items-center gap-1.5">
             <span>Dirancang dengan</span>
             <Heart className="w-3.5 h-3.5 text-emerald-600 fill-emerald-600" />
-            <span>untuk memajukan UMKM & Petani Komoditas Indragiri Hilir.</span>
+            <span>untuk memajukan komoditas petani & UMKM Indragiri Hilir mendunia.</span>
           </div>
         </div>
       </div>
