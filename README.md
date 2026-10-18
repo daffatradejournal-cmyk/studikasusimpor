@@ -116,7 +116,7 @@ Proyek ini dirancang secara khusus untuk memecahkan hambatan rantai pasok komodi
 
 ### 1. Kloning & Masuk ke Folder
 ```bash
-git clone https://github.com/daffatradejournal-cmyk/studi-kasus-pertama-porto-pantai.git
+git clone https://github.com/daffatradejournal-cmyk/studikasusimpor.git
 cd "studi kasus pertama porto pantai"
 ```
 
