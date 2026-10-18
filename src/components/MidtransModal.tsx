@@ -59,127 +59,127 @@ export const MidtransModal: React.FC<MidtransModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-[#000000]/60 backdrop-blur-2xs overflow-y-auto">
-      <div className="relative w-full max-w-lg bg-[#FFFFFF] rounded-xs shadow-shopee-hover border border-[#CCCCCC] overflow-hidden my-6 animate-in fade-in zoom-in-95 duration-150">
-        {/* Midtrans Snap Header */}
-        <div className="bg-[#EE4D2D] text-white p-3.5 sm:p-4 flex items-center justify-between">
-          <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-xs bg-white text-[#EE4D2D] font-bold text-sm flex items-center justify-center shadow-xs">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/60 backdrop-blur-xs overflow-y-auto">
+      <div className="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl border border-emerald-100 overflow-hidden my-6 animate-in fade-in zoom-in-95 duration-200">
+        {/* Header */}
+        <div className="leaf-header-bg text-white p-4 sm:p-5 flex items-center justify-between shadow-xs">
+          <div className="flex items-center gap-3">
+            <div className="w-9 h-9 rounded-xl bg-white text-emerald-700 font-extrabold text-sm flex items-center justify-center shadow-xs">
               PT
             </div>
             <div>
-              <div className="flex items-center gap-1.5">
-                <h3 className="font-titillium font-bold text-sm">Midtrans Snap Gateway</h3>
-                <span className="text-[9px] bg-white/20 text-white px-1.5 py-0.2 rounded-xs font-mono">
+              <div className="flex items-center gap-2">
+                <h3 className="font-bold text-sm tracking-wide">Midtrans Snap Payment Gateway</h3>
+                <span className="text-[10px] bg-white/20 text-white px-2 py-0.5 rounded-full font-mono">
                   SANDBOX
                 </span>
               </div>
-              <p className="text-[10px] text-white/90">
+              <p className="text-[11px] text-emerald-100">
                 Merchant: PasarTembilahan Hub Indragiri Hilir
               </p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="w-7 h-7 rounded-xs bg-white/20 hover:bg-white/30 text-white flex items-center justify-center transition-colors"
+            className="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center transition-colors"
           >
             <X className="w-4 h-4" />
           </button>
         </div>
 
         {/* Order Amount Banner */}
-        <div className="p-4 bg-[#FAFAFA] border-b border-[#CCCCCC]/60 flex items-center justify-between">
+        <div className="p-4 sm:p-5 bg-slate-50 border-b border-slate-100 flex items-center justify-between">
           <div>
-            <span className="text-[10px] text-[#555555] font-semibold block uppercase">
+            <span className="text-[10px] text-slate-500 font-semibold block uppercase">
               Total Pembayaran
             </span>
-            <span className="text-xl sm:text-2xl font-bold text-[#EE4D2D]">
+            <span className="text-2xl font-black text-emerald-700">
               Rp {order.grandTotal.toLocaleString('id-ID')}
             </span>
           </div>
           <div className="text-right">
-            <span className="text-[10px] text-[#5A5A5A] block font-mono">No. Pesanan</span>
-            <span className="text-xs font-mono font-bold text-[#222222]">
+            <span className="text-[10px] text-slate-400 block font-mono">No. Pesanan</span>
+            <span className="text-xs font-mono font-bold text-slate-800">
               {order.orderNumber}
             </span>
           </div>
         </div>
 
-        {/* Payment Method Selector */}
-        <div className="p-4 space-y-4">
+        {/* Payment Methods */}
+        <div className="p-5 space-y-4">
           <div>
-            <label className="text-xs font-bold text-[#222222] block mb-1.5">
-              Pilih Metode Pembayaran:
+            <label className="text-xs font-bold text-slate-800 block mb-2">
+              Pilih Metode Pembayaran Otomatis:
             </label>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
               <button
                 onClick={() => setPaymentType('qris')}
-                className={`p-2 rounded-xs border text-center transition-all flex flex-col items-center gap-1 text-xs font-semibold ${
+                className={`p-2.5 rounded-xl border text-center transition-all flex flex-col items-center gap-1 text-xs font-semibold ${
                   paymentType === 'qris'
-                    ? 'border-[#EE4D2D] bg-[#FACAC0]/25 text-[#EE4D2D]'
-                    : 'border-[#CCCCCC] hover:border-[#EE4D2D]/60 text-[#555555]'
+                    ? 'border-emerald-600 bg-emerald-50 text-emerald-800 shadow-xs'
+                    : 'border-slate-200 hover:border-emerald-300 text-slate-600 bg-white'
                 }`}
               >
-                <QrCode className="w-4 h-4 text-[#EE4D2D]" />
+                <QrCode className="w-4 h-4 text-emerald-600" />
                 <span>QRIS Instan</span>
               </button>
               <button
                 onClick={() => setPaymentType('va_brk')}
-                className={`p-2 rounded-xs border text-center transition-all flex flex-col items-center gap-1 text-xs font-semibold ${
+                className={`p-2.5 rounded-xl border text-center transition-all flex flex-col items-center gap-1 text-xs font-semibold ${
                   paymentType === 'va_brk'
-                    ? 'border-[#EE4D2D] bg-[#FACAC0]/25 text-[#EE4D2D]'
-                    : 'border-[#CCCCCC] hover:border-[#EE4D2D]/60 text-[#555555]'
+                    ? 'border-emerald-600 bg-emerald-50 text-emerald-800 shadow-xs'
+                    : 'border-slate-200 hover:border-emerald-300 text-slate-600 bg-white'
                 }`}
               >
-                <Building className="w-4 h-4 text-[#00BFA5]" />
+                <Building className="w-4 h-4 text-teal-600" />
                 <span>BRK Syariah</span>
               </button>
               <button
                 onClick={() => setPaymentType('va_bca')}
-                className={`p-2 rounded-xs border text-center transition-all flex flex-col items-center gap-1 text-xs font-semibold ${
+                className={`p-2.5 rounded-xl border text-center transition-all flex flex-col items-center gap-1 text-xs font-semibold ${
                   paymentType === 'va_bca'
-                    ? 'border-[#EE4D2D] bg-[#FACAC0]/25 text-[#EE4D2D]'
-                    : 'border-[#CCCCCC] hover:border-[#EE4D2D]/60 text-[#555555]'
+                    ? 'border-emerald-600 bg-emerald-50 text-emerald-800 shadow-xs'
+                    : 'border-slate-200 hover:border-emerald-300 text-slate-600 bg-white'
                 }`}
               >
-                <CreditCard className="w-4 h-4 text-[#066BC8]" />
+                <CreditCard className="w-4 h-4 text-sky-600" />
                 <span>BCA VA</span>
               </button>
               <button
                 onClick={() => setPaymentType('va_mandiri')}
-                className={`p-2 rounded-xs border text-center transition-all flex flex-col items-center gap-1 text-xs font-semibold ${
+                className={`p-2.5 rounded-xl border text-center transition-all flex flex-col items-center gap-1 text-xs font-semibold ${
                   paymentType === 'va_mandiri'
-                    ? 'border-[#EE4D2D] bg-[#FACAC0]/25 text-[#EE4D2D]'
-                    : 'border-[#CCCCCC] hover:border-[#EE4D2D]/60 text-[#555555]'
+                    ? 'border-emerald-600 bg-emerald-50 text-emerald-800 shadow-xs'
+                    : 'border-slate-200 hover:border-emerald-300 text-slate-600 bg-white'
                 }`}
               >
-                <CreditCard className="w-4 h-4 text-[#FFCE3D]" />
+                <CreditCard className="w-4 h-4 text-amber-600" />
                 <span>Mandiri Bill</span>
               </button>
             </div>
           </div>
 
-          {/* Active Payment Details */}
+          {/* Active Payment View */}
           {paymentType === 'qris' ? (
-            <div className="bg-[#FAFAFA] border border-[#CCCCCC]/60 rounded-xs p-4 text-center space-y-2">
-              <span className="text-xs font-semibold text-[#222222] block">
-                Pindai QRIS Menggunakan ShopeePay, GoPay, BCA, OVO, atau Dana
+            <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4 text-center space-y-2.5">
+              <span className="text-xs font-bold text-slate-800 block">
+                Pindai QRIS Menggunakan ShopeePay, GoPay, BCA Mobile, OVO, atau Dana
               </span>
 
               {/* QR Mock */}
-              <div className="inline-block p-3 bg-white rounded-xs shadow-2xs border border-[#CCCCCC]">
+              <div className="inline-block p-3.5 bg-white rounded-2xl shadow-xs border border-slate-200">
                 <svg
-                  className="w-36 h-36 text-[#222222] mx-auto"
+                  className="w-36 h-36 text-slate-900 mx-auto"
                   viewBox="0 0 100 100"
                   fill="none"
                   stroke="currentColor"
                 >
                   <rect width="100" height="100" fill="white" />
-                  <rect x="10" y="10" width="25" height="25" rx="1" stroke="black" strokeWidth="4" />
+                  <rect x="10" y="10" width="25" height="25" rx="2" stroke="black" strokeWidth="4" />
                   <rect x="17" y="17" width="11" height="11" fill="black" />
-                  <rect x="65" y="10" width="25" height="25" rx="1" stroke="black" strokeWidth="4" />
+                  <rect x="65" y="10" width="25" height="25" rx="2" stroke="black" strokeWidth="4" />
                   <rect x="72" y="17" width="11" height="11" fill="black" />
-                  <rect x="10" y="65" width="25" height="25" rx="1" stroke="black" strokeWidth="4" />
+                  <rect x="10" y="65" width="25" height="25" rx="2" stroke="black" strokeWidth="4" />
                   <rect x="17" y="72" width="11" height="11" fill="black" />
                   <rect x="42" y="12" width="6" height="6" fill="black" />
                   <rect x="52" y="16" width="6" height="6" fill="black" />
@@ -197,28 +197,28 @@ export const MidtransModal: React.FC<MidtransModalProps> = ({
                 </svg>
               </div>
 
-              <div className="flex items-center justify-center gap-1 text-[11px] text-[#555555]">
-                <Clock className="w-3.5 h-3.5 text-[#EE4D2D]" />
+              <div className="flex items-center justify-center gap-1.5 text-xs text-slate-500 font-medium">
+                <Clock className="w-3.5 h-3.5 text-amber-500" />
                 <span>Batas waktu pembayaran: 14 menit 59 detik</span>
               </div>
             </div>
           ) : (
-            <div className="bg-[#FAFAFA] border border-[#CCCCCC]/60 rounded-xs p-4 space-y-2">
-              <span className="text-xs text-[#555555] block">
+            <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-2">
+              <span className="text-xs text-slate-500 font-semibold block">
                 Nomor Virtual Account Terverifikasi:
               </span>
-              <div className="flex items-center justify-between p-2.5 bg-white rounded-xs border border-[#CCCCCC] font-mono">
-                <span className="text-base font-bold text-[#222222] tracking-wider">
+              <div className="flex items-center justify-between p-3 bg-white rounded-xl border border-slate-200 font-mono">
+                <span className="text-base font-bold text-slate-900 tracking-wider">
                   {getVaNumber()}
                 </span>
                 <button
                   onClick={handleCopyVa}
-                  className="px-2 py-1 rounded-xs bg-[#F5F5F5] hover:bg-[#CCCCCC] text-[#222222] text-xs font-semibold flex items-center gap-1"
+                  className="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold flex items-center gap-1 transition-colors"
                 >
                   {copied ? (
                     <>
-                      <Check className="w-3 h-3 text-[#00BFA5]" />
-                      <span className="text-[#00BFA5]">Tersalin</span>
+                      <Check className="w-3 h-3 text-emerald-600" />
+                      <span className="text-emerald-700">Tersalin</span>
                     </>
                   ) : (
                     <>
@@ -228,22 +228,22 @@ export const MidtransModal: React.FC<MidtransModalProps> = ({
                   )}
                 </button>
               </div>
-              <p className="text-[11px] text-[#5A5A5A]">
-                Pembayaran akan diverifikasi otomatis oleh webhook dalam hitungan detik.
+              <p className="text-[11px] text-slate-500">
+                Pembayaran akan diverifikasi secara otomatis oleh sistem webhook.
               </p>
             </div>
           )}
 
           {/* Action Simulation Button */}
-          <div className="space-y-1.5 pt-1">
+          <div className="space-y-2 pt-1">
             <button
               onClick={handleSimulateSuccess}
               disabled={isProcessing}
-              className="w-full py-2.5 rounded-xs bg-[#EE4D2D] hover:bg-[#F05D40] text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-1.5 transition-colors shadow-xs disabled:opacity-50"
+              className="w-full py-3 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow-md shadow-emerald-600/20 disabled:opacity-50"
             >
               {isProcessing ? (
                 <>
-                  <div className="w-3.5 h-3.5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                  <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
                   <span>Memproses Webhook Midtrans...</span>
                 </>
               ) : (
@@ -253,7 +253,7 @@ export const MidtransModal: React.FC<MidtransModalProps> = ({
                 </>
               )}
             </button>
-            <p className="text-[10px] text-center text-[#5A5A5A]">
+            <p className="text-[11px] text-center text-slate-400">
               Menstimulasikan Midtrans Callback URL: `/api/payment`
             </p>
           </div>

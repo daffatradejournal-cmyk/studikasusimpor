@@ -6,7 +6,7 @@ import {
   Trash2,
   Plus,
   Minus,
-  ShoppingCart,
+  ShoppingBag,
   Truck,
   Ship,
   MapPin,
@@ -90,52 +90,55 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 overflow-hidden bg-[#000000]/60 backdrop-blur-2xs flex justify-end">
-      <div className="relative w-full max-w-lg bg-[#FFFFFF] h-full shadow-2xl flex flex-col justify-between animate-in slide-in-from-right duration-200">
-        {/* Drawer Header (Shopee Orange Header) */}
-        <div className="p-4 bg-[#EE4D2D] text-white flex items-center justify-between shadow-xs">
-          <div className="flex items-center gap-2">
-            <ShoppingCart className="w-5 h-5" />
-            <h2 className="font-titillium text-base font-bold">
-              Keranjang Belanja ({cart.length} Komoditas)
-            </h2>
+    <div className="fixed inset-0 z-50 overflow-hidden bg-slate-950/60 backdrop-blur-xs flex justify-end">
+      <div className="relative w-full max-w-xl bg-white h-full shadow-2xl flex flex-col justify-between animate-in slide-in-from-right duration-250">
+        {/* Drawer Header (Fresh Leaf Gradient) */}
+        <div className="p-4 sm:p-5 leaf-header-bg text-white flex items-center justify-between shadow-xs">
+          <div className="flex items-center gap-2.5">
+            <div className="w-8 h-8 rounded-xl bg-white/20 flex items-center justify-center">
+              <ShoppingBag className="w-4 h-4 text-white" />
+            </div>
+            <div>
+              <h2 className="text-base font-bold text-white">Keranjang Belanja Komoditas</h2>
+              <p className="text-xs text-emerald-100">{cart.length} komoditas terpilih</p>
+            </div>
           </div>
           <button
             onClick={onClose}
-            className="w-7 h-7 rounded-xs bg-white/20 hover:bg-white/30 text-white flex items-center justify-center transition-colors"
+            className="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center transition-colors"
           >
             <X className="w-4 h-4" />
           </button>
         </div>
 
         {/* Drawer Content */}
-        <div className="flex-1 overflow-y-auto p-4 space-y-5 bg-[#F5F5F5]">
+        <div className="flex-1 overflow-y-auto p-4 sm:p-5 space-y-5 bg-slate-50/70">
           {cart.length === 0 ? (
-            <div className="text-center py-16 space-y-3 bg-[#FFFFFF] p-8 rounded-xs border border-[#CCCCCC]/60">
-              <ShoppingCart className="w-12 h-12 text-[#CCCCCC] mx-auto" />
-              <h3 className="text-sm font-bold text-[#222222]">Keranjang Belanja Anda Kosong</h3>
-              <p className="text-xs text-[#555555]">
-                Pilih komoditas kelapa, perkebunan gambut, atau kuliner khas Inhil dari katalog.
+            <div className="text-center py-16 space-y-3 bg-white p-8 rounded-3xl border border-slate-200">
+              <ShoppingBag className="w-12 h-12 text-slate-300 mx-auto" />
+              <h3 className="text-sm font-bold text-slate-800">Keranjang Belanja Masih Kosong</h3>
+              <p className="text-xs text-slate-500">
+                Jelajahi komoditas kelapa, perkebunan gambut, atau kuliner khas Inhil dan tambahkan ke keranjang.
               </p>
               <button
                 onClick={onClose}
-                className="px-4 py-2 bg-[#EE4D2D] hover:bg-[#F05D40] text-white text-xs font-bold rounded-xs shadow-xs"
+                className="px-5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-full shadow-sm"
               >
-                Belanja Sekarang
+                Mulai Belanja
               </button>
             </div>
           ) : (
             <>
-              {/* Items Card List */}
-              <div className="bg-[#FFFFFF] p-3 rounded-xs border border-[#CCCCCC]/60 space-y-3">
-                <div className="flex items-center justify-between text-xs font-semibold pb-2 border-b border-[#F5F5F5]">
-                  <span className="text-[#222222]">Produk Dipesan</span>
+              {/* Item List */}
+              <div className="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-2xs space-y-3">
+                <div className="flex items-center justify-between text-xs font-semibold pb-2 border-b border-slate-100">
+                  <span className="text-slate-800">Daftar Komoditas</span>
                   <button
                     onClick={onClearCart}
-                    className="text-[#D0011B] hover:underline text-xs flex items-center gap-1 font-normal"
+                    className="text-rose-600 hover:text-rose-700 text-xs flex items-center gap-1 font-medium"
                   >
-                    <Trash2 className="w-3 h-3" />
-                    Hapus Semua
+                    <Trash2 className="w-3.5 h-3.5" />
+                    Kosongkan
                   </button>
                 </div>
 
@@ -143,20 +146,20 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                   {cart.map((item) => (
                     <div
                       key={item.commodity.id}
-                      className="p-2.5 rounded-xs bg-[#FAFAFA] border border-[#CCCCCC]/50 flex items-center gap-3"
+                      className="p-3 rounded-xl bg-slate-50/80 border border-slate-200/80 flex items-center gap-3"
                     >
                       <img
                         src={item.commodity.imageUrl}
                         alt={item.commodity.name}
-                        className="w-12 h-12 object-cover rounded-xs border border-[#CCCCCC]/50 shrink-0"
+                        className="w-12 h-12 rounded-xl object-cover border border-slate-200 shrink-0"
                       />
                       <div className="flex-1 min-w-0">
-                        <h4 className="text-xs font-semibold text-[#222222] truncate">
+                        <h4 className="text-xs font-bold text-slate-800 truncate">
                           {item.commodity.name}
                         </h4>
-                        <div className="text-xs font-bold text-[#EE4D2D]">
+                        <div className="text-xs font-extrabold text-emerald-700">
                           Rp {item.commodity.price.toLocaleString('id-ID')}
-                          <span className="text-[10px] text-[#5A5A5A] font-normal ml-0.5">
+                          <span className="text-[10px] text-slate-500 font-normal ml-0.5">
                             /{item.commodity.unit}
                           </span>
                         </div>
@@ -166,23 +169,23 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                       <div className="flex flex-col items-end gap-1.5 shrink-0">
                         <button
                           onClick={() => onRemoveItem(item.commodity.id)}
-                          className="text-[#5A5A5A] hover:text-[#D0011B]"
+                          className="text-slate-400 hover:text-rose-600 transition-colors"
                         >
                           <Trash2 className="w-3.5 h-3.5" />
                         </button>
-                        <div className="flex items-center border border-[#CCCCCC] rounded-xs bg-white">
+                        <div className="flex items-center border border-slate-300 rounded-xl bg-white overflow-hidden">
                           <button
                             onClick={() => onUpdateQuantity(item.commodity.id, -1)}
-                            className="px-2 py-0.5 text-xs text-[#555555] hover:bg-[#F5F5F5]"
+                            className="px-2 py-0.5 text-xs font-bold text-slate-600 hover:bg-slate-100"
                           >
                             <Minus className="w-2.5 h-2.5" />
                           </button>
-                          <span className="px-2 text-xs font-bold text-[#222222] border-x border-[#CCCCCC]">
+                          <span className="px-2.5 text-xs font-bold text-slate-800 border-x border-slate-200">
                             {item.quantity}
                           </span>
                           <button
                             onClick={() => onUpdateQuantity(item.commodity.id, 1)}
-                            className="px-2 py-0.5 text-xs text-[#555555] hover:bg-[#F5F5F5]"
+                            className="px-2 py-0.5 text-xs font-bold text-slate-600 hover:bg-slate-100"
                           >
                             <Plus className="w-2.5 h-2.5" />
                           </button>
@@ -193,58 +196,58 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                 </div>
               </div>
 
-              {/* Shipping & Delivery Form (Shopee Style) */}
+              {/* Shipping Form */}
               <form
                 id="checkout-form"
                 onSubmit={handleSubmitOrder}
-                className="bg-[#FFFFFF] p-3.5 rounded-xs border border-[#CCCCCC]/60 space-y-3"
+                className="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-2xs space-y-3.5"
               >
-                <div className="flex items-center justify-between pb-2 border-b border-[#F5F5F5]">
-                  <h3 className="font-titillium text-xs font-bold text-[#222222] uppercase tracking-wider flex items-center gap-1.5">
-                    <Truck className="w-3.5 h-3.5 text-[#EE4D2D]" />
-                    Alamat & Opsi Pengiriman
+                <div className="flex items-center justify-between pb-2 border-b border-slate-100">
+                  <h3 className="text-xs font-bold text-slate-800 uppercase tracking-wider flex items-center gap-1.5">
+                    <Truck className="w-4 h-4 text-emerald-600" />
+                    Informasi Pengiriman & Rute Logistik Inhil
                   </h3>
-                  <span className="text-[11px] text-[#555555]">
-                    Total: <strong>{totalWeightKg} Kg</strong>
+                  <span className="text-[11px] font-semibold text-slate-500">
+                    Bobot: <strong className="text-slate-800">{totalWeightKg} Kg</strong>
                   </span>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
                   <div>
-                    <label className="text-[11px] text-[#555555] block mb-0.5 font-medium">
-                      Nama Penerima
+                    <label className="text-[11px] text-slate-600 block mb-1 font-semibold">
+                      Nama Pembeli
                     </label>
                     <input
                       type="text"
                       required
                       value={buyerName}
                       onChange={(e) => setBuyerName(e.target.value)}
-                      className="w-full px-2.5 py-1.5 rounded-xs border border-[#CCCCCC] focus:border-[#EE4D2D] outline-none"
+                      className="w-full px-3 py-1.5 rounded-xl border border-slate-200 focus:border-emerald-600 focus:ring-1 focus:ring-emerald-500/20 outline-none"
                     />
                   </div>
                   <div>
-                    <label className="text-[11px] text-[#555555] block mb-0.5 font-medium">
-                      No. Handphone / WhatsApp
+                    <label className="text-[11px] text-slate-600 block mb-1 font-semibold">
+                      No. WhatsApp / HP
                     </label>
                     <input
                       type="text"
                       required
                       value={buyerPhone}
                       onChange={(e) => setBuyerPhone(e.target.value)}
-                      className="w-full px-2.5 py-1.5 rounded-xs border border-[#CCCCCC] focus:border-[#EE4D2D] outline-none"
+                      className="w-full px-3 py-1.5 rounded-xl border border-slate-200 focus:border-emerald-600 focus:ring-1 focus:ring-emerald-500/20 outline-none"
                     />
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
                   <div>
-                    <label className="text-[11px] text-[#555555] block mb-0.5 font-medium">
-                      Area / Kecamatan Inhil
+                    <label className="text-[11px] text-slate-600 block mb-1 font-semibold">
+                      Wilayah / Kecamatan Tujuan
                     </label>
                     <select
                       value={destinationDistrict}
                       onChange={(e) => setDestinationDistrict(e.target.value)}
-                      className="w-full px-2.5 py-1.5 rounded-xs border border-[#CCCCCC] focus:border-[#EE4D2D] outline-none bg-white"
+                      className="w-full px-3 py-1.5 rounded-xl border border-slate-200 focus:border-emerald-600 outline-none bg-white font-medium"
                     >
                       <option value="Tembilahan Kota">Tembilahan Kota (Darat)</option>
                       <option value="Tembilahan Hilir (Parit 13)">Tembilahan Hilir (Dermaga Parit 13)</option>
@@ -258,7 +261,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                     </select>
                   </div>
                   <div>
-                    <label className="text-[11px] text-[#555555] block mb-0.5 font-medium">
+                    <label className="text-[11px] text-slate-600 block mb-1 font-semibold">
                       Email Pembeli
                     </label>
                     <input
@@ -266,13 +269,13 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                       required
                       value={buyerEmail}
                       onChange={(e) => setBuyerEmail(e.target.value)}
-                      className="w-full px-2.5 py-1.5 rounded-xs border border-[#CCCCCC] focus:border-[#EE4D2D] outline-none"
+                      className="w-full px-3 py-1.5 rounded-xl border border-slate-200 focus:border-emerald-600 outline-none"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="text-[11px] text-[#555555] block mb-0.5 font-medium">
+                  <label className="text-[11px] text-slate-600 block mb-1 font-semibold">
                     Alamat Lengkap / Dermaga Penurunan
                   </label>
                   <textarea
@@ -280,16 +283,16 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                     required
                     value={shippingAddress}
                     onChange={(e) => setShippingAddress(e.target.value)}
-                    className="w-full px-2.5 py-1.5 text-xs rounded-xs border border-[#CCCCCC] focus:border-[#EE4D2D] outline-none"
+                    className="w-full px-3 py-1.5 text-xs rounded-xl border border-slate-200 focus:border-emerald-600 outline-none"
                   />
                 </div>
 
-                {/* Pilih Kurir Shopee Style */}
-                <div className="space-y-1.5 pt-1">
-                  <label className="text-[11px] text-[#222222] font-semibold block">
+                {/* Pilih Kurir */}
+                <div className="space-y-2 pt-1">
+                  <label className="text-[11px] text-slate-800 font-bold block">
                     Pilih Ekspedisi / Kurir Pengantar:
                   </label>
-                  <div className="space-y-1">
+                  <div className="space-y-1.5">
                     {INITIAL_SHIPPING_ROUTES.map((route) => {
                       const isSelected = selectedRouteId === route.id;
                       const calculatedCost = route.baseCost + (totalWeightKg - 1) * route.costPerKg;
@@ -299,10 +302,10 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                         <div
                           key={route.id}
                           onClick={() => setSelectedRouteId(route.id)}
-                          className={`p-2 rounded-xs border cursor-pointer transition-all flex items-center justify-between text-xs ${
+                          className={`p-2.5 rounded-xl border cursor-pointer transition-all flex items-center justify-between text-xs ${
                             isSelected
-                              ? 'border-[#EE4D2D] bg-[#FACAC0]/20'
-                              : 'border-[#CCCCCC]/50 bg-white hover:border-[#CCCCCC]'
+                              ? 'border-emerald-600 bg-emerald-50/60 shadow-xs'
+                              : 'border-slate-200 bg-white hover:border-emerald-300'
                           }`}
                         >
                           <div className="flex items-center gap-2">
@@ -311,27 +314,27 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                               name="shippingRoute"
                               checked={isSelected}
                               onChange={() => setSelectedRouteId(route.id)}
-                              className="accent-[#EE4D2D]"
+                              className="accent-emerald-600"
                             />
                             <div>
                               <div className="flex items-center gap-1.5">
-                                <span className="font-semibold text-[#222222]">
+                                <span className="font-bold text-slate-800">
                                   {route.courierName}
                                 </span>
                                 <span
-                                  className={`text-[9px] px-1 py-0.2 rounded-xs font-bold ${
+                                  className={`text-[9px] px-2 py-0.5 rounded-full font-bold ${
                                     isWater
-                                      ? 'bg-[#00BFA5]/10 text-[#00BFA5] border border-[#00BFA5]/40'
-                                      : 'bg-[#EE4D2D]/10 text-[#EE4D2D] border border-[#EE4D2D]/30'
+                                      ? 'bg-sky-100 text-sky-800'
+                                      : 'bg-emerald-100 text-emerald-800'
                                   }`}
                                 >
-                                  {isWater ? 'Jalur Air' : 'Darat'}
+                                  {isWater ? 'Jalur Air Inhil' : 'Darat'}
                                 </span>
                               </div>
-                              <p className="text-[10px] text-[#5A5A5A]">{route.estimatedDays}</p>
+                              <p className="text-[10px] text-slate-500">{route.estimatedDays}</p>
                             </div>
                           </div>
-                          <span className="font-bold text-[#EE4D2D]">
+                          <span className="font-extrabold text-emerald-700">
                             Rp {calculatedCost.toLocaleString('id-ID')}
                           </span>
                         </div>
@@ -344,25 +347,25 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
           )}
         </div>
 
-        {/* Drawer Bottom Bar (Shopee Checkout Footer) */}
+        {/* Drawer Bottom Bar */}
         {cart.length > 0 && (
-          <div className="p-3.5 bg-[#FFFFFF] border-t border-[#CCCCCC] shadow-lg space-y-2">
-            <div className="space-y-1 text-xs text-[#555555]">
+          <div className="p-4 bg-white border-t border-slate-200 shadow-lg space-y-2.5">
+            <div className="space-y-1 text-xs text-slate-600">
               <div className="flex justify-between">
                 <span>Subtotal Komoditas:</span>
-                <span className="font-medium text-[#222222]">
+                <span className="font-semibold text-slate-800">
                   Rp {subtotal.toLocaleString('id-ID')}
                 </span>
               </div>
               <div className="flex justify-between">
                 <span>Ongkos Kirim ({selectedRoute.courierName}):</span>
-                <span className="font-medium text-[#222222]">
+                <span className="font-semibold text-slate-800">
                   Rp {shippingCost.toLocaleString('id-ID')}
                 </span>
               </div>
-              <div className="flex justify-between text-sm pt-1 border-t border-[#F5F5F5] font-bold">
-                <span className="text-[#222222]">Total Pembayaran:</span>
-                <span className="text-[#EE4D2D] text-lg font-bold">
+              <div className="flex justify-between text-sm pt-1 border-t border-slate-100 font-bold">
+                <span className="text-slate-900">Total Pembayaran:</span>
+                <span className="text-emerald-700 text-lg font-black">
                   Rp {grandTotal.toLocaleString('id-ID')}
                 </span>
               </div>
@@ -371,15 +374,17 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
             <button
               type="submit"
               form="checkout-form"
-              className="w-full py-2.5 rounded-xs bg-[#EE4D2D] hover:bg-[#F05D40] active:bg-[#E2492B] text-white font-bold text-sm shadow-xs flex items-center justify-center gap-1.5 transition-colors uppercase tracking-wider"
+              className="w-full py-3 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shadow-md shadow-emerald-600/20 flex items-center justify-center gap-2 transition-all hover:scale-[1.01] active:scale-[0.99]"
             >
               <CreditCard className="w-4 h-4" />
-              <span>Checkout via Midtrans</span>
+              <span>Checkout via Midtrans Snap</span>
+              <ArrowRight className="w-4 h-4" />
             </button>
 
-            <p className="text-[10px] text-center text-[#5A5A5A]">
-              Dilindungi Garansi PasarTembilahan & Verifikasi Otomatis
-            </p>
+            <div className="flex items-center justify-center gap-1.5 text-[11px] text-slate-400">
+              <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+              <span>Dilindungi Sistem Pembayaran Otomatis & Terverifikasi</span>
+            </div>
           </div>
         )}
       </div>

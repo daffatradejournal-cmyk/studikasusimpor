@@ -7,7 +7,6 @@ const SQL_SCHEMA_CONTENT = `-- =================================================
 -- SCHEMA DATABASE PASARTEMBILAHAN (E-COMMERCE & RANTAI PASOK INHIL)
 -- Arsitektur: Relational Database (Kompatibel PostgreSQL & MySQL)
 -- Studi Kasus: S1 Sistem Informasi - Universitas Islam Indragiri (UNISI)
--- Design System: Shopee.com Design Tokens & Relational Standard
 -- =====================================================================
 
 -- 1. TABEL PENGGUNA & MITRA UMKM / KOPERASI
@@ -156,56 +155,56 @@ export const SqlSchemaViewer: React.FC = () => {
   };
 
   return (
-    <div className="space-y-4">
-      {/* 4 Cards Summary */}
-      <div className="grid grid-cols-1 sm:grid-cols-4 gap-2.5">
-        <div className="p-3.5 rounded-xs bg-[#FFFFFF] border border-[#CCCCCC]/60 shadow-xs space-y-1">
-          <div className="flex items-center gap-1.5 text-xs text-[#555555]">
-            <Table className="w-4 h-4 text-[#EE4D2D]" />
+    <div className="space-y-6">
+      {/* 4 Cards Summary (Smooth Rounded-3xl) */}
+      <div className="grid grid-cols-1 sm:grid-cols-4 gap-3.5">
+        <div className="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-soft space-y-1">
+          <div className="flex items-center gap-1.5 text-xs text-slate-500 font-semibold">
+            <Table className="w-4 h-4 text-emerald-600" />
             <span>Relational Tables</span>
           </div>
-          <span className="text-xl font-bold text-[#222222]">9 Tabel</span>
-          <p className="text-[10px] text-[#5A5A5A]">Normalisasi 3NF</p>
+          <span className="text-2xl font-black text-slate-900">9 Tabel</span>
+          <p className="text-[11px] text-slate-400">Normalisasi 3NF</p>
         </div>
 
-        <div className="p-3.5 rounded-xs bg-[#FFFFFF] border border-[#CCCCCC]/60 shadow-xs space-y-1">
-          <div className="flex items-center gap-1.5 text-xs text-[#555555]">
-            <Key className="w-4 h-4 text-[#066BC8]" />
+        <div className="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-soft space-y-1">
+          <div className="flex items-center gap-1.5 text-xs text-slate-500 font-semibold">
+            <Key className="w-4 h-4 text-sky-600" />
             <span>Primary & Foreign Keys</span>
           </div>
-          <span className="text-xl font-bold text-[#222222]">14 Relasi</span>
-          <p className="text-[10px] text-[#5A5A5A]">Integritas Referensial Keras</p>
+          <span className="text-2xl font-black text-slate-900">14 Relasi</span>
+          <p className="text-[11px] text-slate-400">Integritas Referensial Keras</p>
         </div>
 
-        <div className="p-3.5 rounded-xs bg-[#FFFFFF] border border-[#CCCCCC]/60 shadow-xs space-y-1">
-          <div className="flex items-center gap-1.5 text-xs text-[#555555]">
-            <Layers className="w-4 h-4 text-[#FFCE3D]" />
+        <div className="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-soft space-y-1">
+          <div className="flex items-center gap-1.5 text-xs text-slate-500 font-semibold">
+            <Layers className="w-4 h-4 text-amber-500" />
             <span>Database Constraints</span>
           </div>
-          <span className="text-xl font-bold text-[#222222]">CHECK & UNIQUE</span>
-          <p className="text-[10px] text-[#5A5A5A]">Proteksi stok & harga non-negatif</p>
+          <span className="text-2xl font-black text-slate-900">CHECK & UNIQUE</span>
+          <p className="text-[11px] text-slate-400">Proteksi stok & harga non-negatif</p>
         </div>
 
-        <div className="p-3.5 rounded-xs bg-[#FFFFFF] border border-[#CCCCCC]/60 shadow-xs space-y-1">
-          <div className="flex items-center gap-1.5 text-xs text-[#555555]">
-            <ShieldCheck className="w-4 h-4 text-[#00BFA5]" />
+        <div className="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-soft space-y-1">
+          <div className="flex items-center gap-1.5 text-xs text-slate-500 font-semibold">
+            <ShieldCheck className="w-4 h-4 text-emerald-600" />
             <span>Audit Trail Ledger</span>
           </div>
-          <span className="text-xl font-bold text-[#222222]">stock_movements</span>
-          <p className="text-[10px] text-[#5A5A5A]">Pencegahan anomali stok</p>
+          <span className="text-2xl font-black text-slate-900">stock_movements</span>
+          <p className="text-[11px] text-slate-400">Pencegahan anomali stok</p>
         </div>
       </div>
 
       {/* SQL Script Viewer */}
-      <div className="bg-[#FFFFFF] rounded-xs border border-[#CCCCCC] shadow-sm overflow-hidden">
-        <div className="p-3 bg-[#FAFAFA] border-b border-[#CCCCCC] flex items-center justify-between">
-          <span className="text-xs font-mono font-bold text-[#222222]">
+      <div className="bg-slate-900 rounded-3xl border border-slate-800 shadow-xl overflow-hidden">
+        <div className="p-4 bg-slate-950 border-b border-slate-800 flex items-center justify-between">
+          <span className="text-xs font-mono font-bold text-slate-300">
             schema.sql — Relational Database DDL (PostgreSQL & MySQL Compatible)
           </span>
 
           <button
             onClick={handleCopy}
-            className="flex items-center gap-1 px-3 py-1 bg-[#EE4D2D] hover:bg-[#F05D40] text-white text-xs font-bold rounded-xs transition-colors"
+            className="flex items-center gap-1.5 px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-xl transition-colors shadow-xs"
           >
             {copied ? (
               <>
@@ -221,7 +220,7 @@ export const SqlSchemaViewer: React.FC = () => {
           </button>
         </div>
 
-        <div className="p-4 overflow-x-auto max-h-[520px] font-mono text-xs text-[#222222] bg-[#FBFBFB] leading-relaxed">
+        <div className="p-5 overflow-x-auto max-h-[520px] font-mono text-xs text-slate-300 leading-relaxed">
           <pre>{SQL_SCHEMA_CONTENT}</pre>
         </div>
       </div>

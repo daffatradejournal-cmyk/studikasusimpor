@@ -10,6 +10,7 @@ import {
   Coins,
   Navigation,
   Info,
+  CheckCircle2,
 } from 'lucide-react';
 import { INITIAL_SHIPPING_ROUTES } from '../lib/mockData';
 
@@ -19,40 +20,40 @@ export const ShippingCalculator: React.FC = () => {
   const [destination, setDestination] = useState('Pekanbaru Kota');
 
   return (
-    <div className="space-y-4">
-      {/* Shopee Logistics Header Card */}
-      <div className="p-4 sm:p-5 rounded-xs bg-[#FFFFFF] border border-[#CCCCCC]/60 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-        <div>
-          <div className="flex items-center gap-1.5 text-xs font-bold text-[#EE4D2D] uppercase tracking-wider">
-            <Ship className="w-4 h-4 text-[#066BC8]" />
-            <span>Shopee Logistics Hub • Indragiri Hilir</span>
+    <div className="space-y-6">
+      {/* Header Banner */}
+      <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-emerald-800 via-teal-800 to-sky-900 text-white shadow-soft flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div className="space-y-2 max-w-3xl">
+          <div className="inline-flex items-center gap-1.5 text-xs font-bold text-lime-300 bg-white/10 px-3 py-1 rounded-full">
+            <Ship className="w-4 h-4 text-sky-300" />
+            <span>Kalkulator Logistik Multimodal Indragiri Hilir</span>
           </div>
-          <h2 className="font-titillium text-lg sm:text-xl font-bold text-[#222222] mt-0.5">
-            Kalkulator Ongkos Kirim: Jalur Perairan Sungai & Darat Inhil
+          <h2 className="text-xl sm:text-2xl font-black text-white">
+            Estimasi Ongkos Kirim: <span className="text-lime-300">Jalur Perairan Sungai & Darat</span>
           </h2>
-          <p className="text-xs text-[#555555] mt-0.5">
-            Estimasi tarif pengiriman komoditas kelapa, kopra, dan olahan via perahu pompong, speedboat, dan kargo darat.
+          <p className="text-xs sm:text-sm text-emerald-100 leading-relaxed">
+            Menghitung tarif transparan rute muatan perahu pompong Parit 21, speedboat express antar-parit muara, dan truk kargo darat lintas provinsi.
           </p>
         </div>
 
-        <div className="px-3 py-1 bg-[#00BFA5]/10 text-[#00BFA5] border border-[#00BFA5]/40 text-xs font-bold rounded-xs shrink-0">
-          ✓ Garansi Ongkir Transparan
+        <div className="px-4 py-2 bg-white/15 backdrop-blur-xs text-white border border-white/20 text-xs font-bold rounded-2xl shrink-0">
+          ✓ Terverifikasi Rute Inhil
         </div>
       </div>
 
       {/* Inputs Bar */}
-      <div className="bg-[#FFFFFF] rounded-xs border border-[#CCCCCC]/60 p-4 shadow-sm space-y-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+      <div className="bg-white rounded-3xl border border-emerald-100 p-6 shadow-soft space-y-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {/* Asal */}
           <div>
-            <label className="text-xs font-semibold text-[#222222] block mb-1 flex items-center gap-1">
-              <MapPin className="w-3.5 h-3.5 text-[#EE4D2D]" />
+            <label className="text-xs font-bold text-slate-800 block mb-1.5 flex items-center gap-1.5">
+              <MapPin className="w-3.5 h-3.5 text-emerald-600" />
               Titik Muat Asal (Inhil):
             </label>
             <select
               value={origin}
               onChange={(e) => setOrigin(e.target.value)}
-              className="w-full px-2.5 py-1.5 text-xs rounded-xs border border-[#CCCCCC] bg-white focus:outline-none focus:border-[#EE4D2D]"
+              className="w-full px-3 py-2 text-xs rounded-xl border border-slate-200 bg-slate-50/60 font-semibold text-slate-800 focus:outline-none focus:border-emerald-600"
             >
               <option value="Dermaga Parit 13 Tembilahan Hilir">Dermaga Parit 13 (Tembilahan Hilir)</option>
               <option value="Pelabuhan Parit 21 Tembilahan">Pelabuhan Parit 21 (Pusat Bongkar Kelapa)</option>
@@ -64,14 +65,14 @@ export const ShippingCalculator: React.FC = () => {
 
           {/* Tujuan */}
           <div>
-            <label className="text-xs font-semibold text-[#222222] block mb-1 flex items-center gap-1">
-              <Navigation className="w-3.5 h-3.5 text-[#066BC8]" />
+            <label className="text-xs font-bold text-slate-800 block mb-1.5 flex items-center gap-1.5">
+              <Navigation className="w-3.5 h-3.5 text-sky-600" />
               Wilayah / Kecamatan Tujuan:
             </label>
             <select
               value={destination}
               onChange={(e) => setDestination(e.target.value)}
-              className="w-full px-2.5 py-1.5 text-xs rounded-xs border border-[#CCCCCC] bg-white focus:outline-none focus:border-[#EE4D2D]"
+              className="w-full px-3 py-2 text-xs rounded-xl border border-slate-200 bg-slate-50/60 font-semibold text-slate-800 focus:outline-none focus:border-emerald-600"
             >
               <optgroup label="Tujuan Lokal Perairan Inhil">
                 <option value="Kec. Mandah (Jalur Air)">Kec. Mandah (Speedboat Air)</option>
@@ -90,11 +91,11 @@ export const ShippingCalculator: React.FC = () => {
 
           {/* Bobot Slider */}
           <div>
-            <div className="flex items-center justify-between mb-1">
-              <label className="text-xs font-semibold text-[#222222]">
+            <div className="flex items-center justify-between mb-1.5">
+              <label className="text-xs font-bold text-slate-800">
                 Bobot Muatan Komoditas:
               </label>
-              <span className="text-xs font-bold text-[#EE4D2D] bg-[#FACAC0]/30 px-2 py-0.2 rounded-xs border border-[#EE4D2D]/30">
+              <span className="text-xs font-black text-emerald-800 bg-emerald-100 px-2.5 py-0.5 rounded-full">
                 {weightKg >= 1000 ? `${(weightKg / 1000).toFixed(2)} Ton` : `${weightKg} Kg`}
               </span>
             </div>
@@ -105,9 +106,9 @@ export const ShippingCalculator: React.FC = () => {
               step="1"
               value={weightKg}
               onChange={(e) => setWeightKg(Number(e.target.value))}
-              className="w-full h-1.5 bg-[#CCCCCC] rounded-xs appearance-none cursor-pointer accent-[#EE4D2D]"
+              className="w-full h-2 bg-slate-200 rounded-full appearance-none cursor-pointer accent-emerald-600"
             />
-            <div className="flex justify-between text-[10px] text-[#5A5A5A] mt-0.5">
+            <div className="flex justify-between text-[10px] text-slate-400 mt-1">
               <span>1 Kg</span>
               <span>100 Kg</span>
               <span>250 Kg</span>
@@ -117,8 +118,8 @@ export const ShippingCalculator: React.FC = () => {
         </div>
       </div>
 
-      {/* Routes Cards Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2.5">
+      {/* Routes Cards Grid (Smooth Organic Rounded-2xl Cards) */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {INITIAL_SHIPPING_ROUTES.map((route) => {
           const totalCost = route.baseCost + Math.max(0, weightKg - 1) * route.costPerKg;
           const isWater = route.transportMode === 'river_water';
@@ -126,54 +127,55 @@ export const ShippingCalculator: React.FC = () => {
           return (
             <div
               key={route.id}
-              className="bg-[#FFFFFF] rounded-xs border border-[#CCCCCC]/60 p-3.5 flex flex-col justify-between space-y-3 shadow-xs hover:border-[#EE4D2D] transition-colors"
+              className="bg-white rounded-2xl border border-slate-200/90 p-5 flex flex-col justify-between space-y-4 shadow-soft hover:border-emerald-400 hover:shadow-hover transition-all"
             >
-              <div className="space-y-2">
+              <div className="space-y-3">
                 <div className="flex items-center justify-between">
                   <span
-                    className={`text-[9px] font-bold px-1.5 py-0.5 rounded-xs uppercase tracking-wider ${
+                    className={`text-[10px] font-extrabold px-2.5 py-0.5 rounded-full uppercase tracking-wider flex items-center gap-1 ${
                       isWater
-                        ? 'bg-[#00BFA5]/10 text-[#00BFA5] border border-[#00BFA5]/40'
-                        : 'bg-[#EE4D2D]/10 text-[#EE4D2D] border border-[#EE4D2D]/30'
+                        ? 'bg-sky-100 text-sky-800'
+                        : 'bg-emerald-100 text-emerald-800'
                     }`}
                   >
-                    {route.transportLabel}
+                    {isWater ? <Ship className="w-3.5 h-3.5" /> : <Truck className="w-3.5 h-3.5" />}
+                    <span>{route.transportLabel}</span>
                   </span>
-                  <span className="text-[10px] font-mono text-[#5A5A5A]">{route.courierCode}</span>
+                  <span className="text-[11px] font-mono text-slate-400">{route.courierCode}</span>
                 </div>
 
                 <div>
-                  <h3 className="font-titillium font-bold text-sm text-[#222222]">
+                  <h3 className="font-bold text-base text-slate-900 leading-snug">
                     {route.courierName}
                   </h3>
-                  <p className="text-[11px] text-[#555555]">{route.serviceType}</p>
+                  <p className="text-xs text-slate-500">{route.serviceType}</p>
                 </div>
 
-                <p className="text-xs text-[#5A5A5A] leading-relaxed">{route.description}</p>
+                <p className="text-xs text-slate-600 leading-relaxed">{route.description}</p>
 
-                <div className="p-2 bg-[#FAFAFA] rounded-xs border border-[#CCCCCC]/40 text-xs space-y-1">
-                  <div className="flex justify-between text-[#555555]">
-                    <span>Estimasi Waktu:</span>
-                    <strong className="text-[#222222]">{route.estimatedDays}</strong>
+                <div className="p-3 bg-slate-50 rounded-xl border border-slate-100 text-xs space-y-1.5">
+                  <div className="flex justify-between text-slate-600">
+                    <span>Estimasi Durasi:</span>
+                    <strong className="text-slate-900">{route.estimatedDays}</strong>
                   </div>
-                  <div className="flex justify-between text-[#555555]">
+                  <div className="flex justify-between text-slate-600">
                     <span>Tarif Dasar (1 Kg):</span>
-                    <strong className="text-[#222222]">
+                    <strong className="text-slate-900">
                       Rp {route.baseCost.toLocaleString('id-ID')}
                     </strong>
                   </div>
-                  <div className="flex justify-between text-[#555555]">
-                    <span>Biaya Tambahan / Kg:</span>
-                    <strong className="text-[#222222]">
+                  <div className="flex justify-between text-slate-600">
+                    <span>Tarif Tambahan / Kg:</span>
+                    <strong className="text-slate-900">
                       Rp {route.costPerKg.toLocaleString('id-ID')}
                     </strong>
                   </div>
                 </div>
               </div>
 
-              <div className="pt-2 border-t border-[#F5F5F5] flex items-baseline justify-between">
-                <span className="text-xs text-[#555555]">Total ({weightKg} Kg):</span>
-                <span className="text-base font-bold text-[#EE4D2D]">
+              <div className="pt-3 border-t border-slate-100 flex items-baseline justify-between">
+                <span className="text-xs text-slate-500 font-semibold">Total Ongkir ({weightKg} Kg):</span>
+                <span className="text-lg font-black text-emerald-700">
                   Rp {totalCost.toLocaleString('id-ID')}
                 </span>
               </div>
