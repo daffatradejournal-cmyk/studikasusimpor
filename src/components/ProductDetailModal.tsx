@@ -52,31 +52,31 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/60 backdrop-blur-xs overflow-y-auto">
-      <div className="relative w-full max-w-3xl bg-white rounded-3xl shadow-2xl border border-emerald-100 overflow-hidden my-6 animate-in fade-in zoom-in-95 duration-200">
+    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-slate-950/60 backdrop-blur-xs overflow-hidden">
+      <div className="relative w-full max-w-3xl bg-white rounded-t-3xl sm:rounded-3xl shadow-2xl border border-emerald-100 overflow-hidden max-h-[92vh] sm:max-h-[90vh] flex flex-col animate-in slide-in-from-bottom-6 sm:zoom-in-95 duration-200">
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-slate-900/40 hover:bg-slate-900/60 text-white flex items-center justify-center backdrop-blur-xs transition-colors"
+          className="absolute top-3 right-3 sm:top-4 sm:right-4 z-20 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-slate-900/40 hover:bg-slate-900/60 text-white flex items-center justify-center backdrop-blur-xs transition-colors"
         >
-          <X className="w-5 h-5" />
+          <X className="w-4 h-4 sm:w-5 sm:h-5" />
         </button>
 
-        <div className="grid grid-cols-1 md:grid-cols-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 overflow-y-auto">
           {/* Left Column: Image with Organic Rounded Styling */}
-          <div className="relative bg-emerald-50/40 flex flex-col items-center justify-center p-6 border-b md:border-b-0 md:border-r border-emerald-100/60">
-            <div className="w-full aspect-square relative rounded-2xl overflow-hidden shadow-md shadow-emerald-900/10 bg-white">
+          <div className="relative bg-emerald-50/40 flex flex-col items-center justify-center p-4 sm:p-6 border-b md:border-b-0 md:border-r border-emerald-100/60">
+            <div className="w-full h-48 sm:h-auto sm:aspect-square relative rounded-xl sm:rounded-2xl overflow-hidden shadow-md shadow-emerald-900/10 bg-white">
               <img
                 src={product.imageUrl}
                 alt={product.name}
                 className="w-full h-full object-cover"
               />
-              <div className="absolute top-3 left-3 flex flex-col gap-1.5">
-                <span className="bg-emerald-700 text-white text-[10px] font-extrabold px-2.5 py-0.5 rounded-full uppercase tracking-wider shadow-sm">
+              <div className="absolute top-2.5 left-2.5 sm:top-3 sm:left-3 flex flex-col gap-1 sm:gap-1.5">
+                <span className="bg-emerald-700 text-white text-[9px] sm:text-[10px] font-extrabold px-2 sm:px-2.5 py-0.5 rounded-full uppercase tracking-wider shadow-sm">
                   {product.grade}
                 </span>
                 {product.isOrganic && (
-                  <span className="bg-lime-400 text-emerald-950 text-[10px] font-extrabold px-2.5 py-0.5 rounded-full uppercase tracking-wider flex items-center gap-1 shadow-sm">
+                  <span className="bg-lime-400 text-emerald-950 text-[9px] sm:text-[10px] font-extrabold px-2 sm:px-2.5 py-0.5 rounded-full uppercase tracking-wider flex items-center gap-1 shadow-sm">
                     <CheckCircle2 className="w-3 h-3" />
                     100% Organik
                   </span>

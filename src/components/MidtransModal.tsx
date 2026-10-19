@@ -59,8 +59,8 @@ export const MidtransModal: React.FC<MidtransModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/60 backdrop-blur-xs overflow-y-auto">
-      <div className="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl border border-emerald-100 overflow-hidden my-6 animate-in fade-in zoom-in-95 duration-200">
+    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-slate-950/60 backdrop-blur-xs overflow-hidden">
+      <div className="relative w-full max-w-lg bg-white rounded-t-3xl sm:rounded-3xl shadow-2xl border border-emerald-100 overflow-hidden max-h-[92vh] flex flex-col my-0 sm:my-6 animate-in slide-in-from-bottom-6 sm:zoom-in-95 duration-200">
         {/* Header */}
         <div className="leaf-header-bg text-white p-4 sm:p-5 flex items-center justify-between shadow-xs">
           <div className="flex items-center gap-3">
@@ -106,7 +106,7 @@ export const MidtransModal: React.FC<MidtransModalProps> = ({
         </div>
 
         {/* Payment Methods */}
-        <div className="p-5 space-y-4">
+        <div className="p-4 sm:p-5 space-y-4 overflow-y-auto flex-1">
           <div>
             <label className="text-xs font-bold text-slate-800 block mb-2">
               Pilih Metode Pembayaran Otomatis:

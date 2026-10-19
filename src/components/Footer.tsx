@@ -9,9 +9,9 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({ onSelectTab }) => {
   return (
-    <footer className="mt-12 bg-white border-t-4 border-emerald-600 text-slate-600 text-xs">
+    <footer className="mt-8 sm:mt-12 bg-white border-t-4 border-emerald-600 text-slate-600 text-xs">
       {/* Top 4 Columns Leaf Green Style */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 pb-24 sm:pb-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {/* Col 1 */}
           <div className="space-y-2.5">

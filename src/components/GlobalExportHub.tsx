@@ -79,18 +79,18 @@ export const GlobalExportHub: React.FC = () => {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 sm:space-y-6">
       {/* Hero Global Trade Banner */}
-      <div className="relative bg-gradient-to-br from-emerald-800 via-emerald-700 to-teal-800 text-white rounded-3xl p-6 sm:p-8 shadow-soft overflow-hidden">
+      <div className="relative bg-gradient-to-br from-emerald-800 via-emerald-700 to-teal-800 text-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 shadow-soft overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl pointer-events-none" />
         
-        <div className="relative z-10 max-w-3xl space-y-3">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/15 backdrop-blur-xs text-lime-300 text-xs font-extrabold uppercase tracking-wider">
-            <Globe className="w-3.5 h-3.5" />
-            <span>Gerbang Ekspor Komoditas Indragiri Hilir Menuju Pasar Global</span>
+        <div className="relative z-10 max-w-3xl space-y-2.5 sm:space-y-3">
+          <div className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full bg-white/15 backdrop-blur-xs text-lime-300 text-[10px] sm:text-xs font-extrabold uppercase tracking-wider">
+            <Globe className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+            <span>Gerbang Ekspor Komoditas Inhil</span>
           </div>
 
-          <h1 className="text-2xl sm:text-4xl font-extrabold text-white leading-tight">
+          <h1 className="text-xl sm:text-4xl font-extrabold text-white leading-tight">
             Hub Perdagangan Internasional: Dari Parit Tembilahan Menembus Dunia
           </h1>
 
@@ -98,41 +98,41 @@ export const GlobalExportHub: React.FC = () => {
             Kabupaten Indragiri Hilir memiliki lebih dari <strong>400.000 hektar hamparan perkebunan kelapa</strong> — terluas di dunia. <strong>PasarTembilahan Global</strong> menghubungkan langsung koperasi tani kelapa, pabrik pengolahan turunan, dan UMKM dengan importir serta buyer internasional tanpa perantara tengkulak berlapis.
           </p>
 
-          <div className="pt-2 flex flex-wrap items-center gap-3">
-            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-900/60 border border-emerald-500/30 text-xs font-medium">
+          <div className="pt-1.5 sm:pt-2 flex flex-wrap items-center gap-2 sm:gap-3">
+            <div className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-emerald-900/60 border border-emerald-500/30 text-[11px] sm:text-xs font-medium">
               <Ship className="w-3.5 h-3.5 text-lime-300" />
               <span>Pelabuhan Samudera Kuala Enok</span>
             </div>
-            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-900/60 border border-emerald-500/30 text-xs font-medium">
+            <div className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-emerald-900/60 border border-emerald-500/30 text-[11px] sm:text-xs font-medium">
               <Anchor className="w-3.5 h-3.5 text-lime-300" />
-              <span>Dermaga Multimodal Parit 21</span>
+              <span>Dermaga Parit 21</span>
             </div>
-            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-900/60 border border-emerald-500/30 text-xs font-medium">
+            <div className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-emerald-900/60 border border-emerald-500/30 text-[11px] sm:text-xs font-medium">
               <ShieldCheck className="w-3.5 h-3.5 text-lime-300" />
-              <span>Sertifikasi Standar Sucofindo & Halal</span>
+              <span>Sucofindo & Halal</span>
             </div>
           </div>
         </div>
       </div>
 
       {/* 4 Stat Highlights */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3.5">
-        <div className="bg-white p-4 rounded-2xl border border-emerald-100 shadow-soft">
-          <div className="text-emerald-700 text-xs font-bold uppercase tracking-wider mb-1 flex items-center gap-1.5">
-            <TrendingUp className="w-4 h-4 text-emerald-600" />
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-3.5">
+        <div className="bg-white p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-emerald-100 shadow-soft">
+          <div className="text-emerald-700 text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-0.5 sm:mb-1 flex items-center gap-1 sm:gap-1.5">
+            <TrendingUp className="w-3.5 h-3.5 text-emerald-600" />
             <span>Potensi Panen</span>
           </div>
-          <div className="text-xl sm:text-2xl font-black text-slate-900">1.2 Miliar</div>
-          <div className="text-[11px] text-slate-500">Butir kelapa/tahun di hamparan Inhil</div>
+          <div className="text-lg sm:text-2xl font-black text-slate-900">1.2 Miliar</div>
+          <div className="text-[10px] sm:text-[11px] text-slate-500 truncate">Butir kelapa/tahun di Inhil</div>
         </div>
 
-        <div className="bg-white p-4 rounded-2xl border border-emerald-100 shadow-soft">
-          <div className="text-emerald-700 text-xs font-bold uppercase tracking-wider mb-1 flex items-center gap-1.5">
-            <Boxes className="w-4 h-4 text-emerald-600" />
+        <div className="bg-white p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-emerald-100 shadow-soft">
+          <div className="text-emerald-700 text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-0.5 sm:mb-1 flex items-center gap-1 sm:gap-1.5">
+            <Boxes className="w-3.5 h-3.5 text-emerald-600" />
             <span>Kapasitas Muat</span>
           </div>
-          <div className="text-xl sm:text-2xl font-black text-slate-900">50 - 200 Ton</div>
-          <div className="text-[11px] text-slate-500">Kargo kapal tongkang & kontainer</div>
+          <div className="text-lg sm:text-2xl font-black text-slate-900">50 - 200 Ton</div>
+          <div className="text-[10px] sm:text-[11px] text-slate-500 truncate">Tongkang & kontainer</div>
         </div>
 
         <div className="bg-white p-4 rounded-2xl border border-emerald-100 shadow-soft">

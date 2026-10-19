@@ -13,6 +13,7 @@ import { UmkmDashboard } from '@/components/UmkmDashboard';
 import { ArchitectureModal } from '@/components/ArchitectureModal';
 import { SqlSchemaViewer } from '@/components/SqlSchemaViewer';
 import { GlobalExportHub } from '@/components/GlobalExportHub';
+import { MobileBottomNav } from '@/components/MobileBottomNav';
 import { Footer } from '@/components/Footer';
 import { CheckCircle2 } from 'lucide-react';
 
@@ -50,7 +51,7 @@ export default function Home() {
       />
 
       {/* Main Body Content Container */}
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 space-y-6">
+      <main className="flex-1 max-w-7xl w-full mx-auto px-3 sm:px-6 lg:px-8 py-3 sm:py-6 space-y-4 sm:space-y-6 pb-20 md:pb-6">
         {store.activeTab === 'katalog' && (
           <CommodityCatalog
             commodities={store.commodities}
@@ -150,6 +151,14 @@ export default function Home() {
 
       {/* Footer */}
       <Footer onSelectTab={store.setActiveTab} />
+
+      {/* Mobile Bottom Navigation Bar (Visible only on mobile devices) */}
+      <MobileBottomNav
+        activeTab={store.activeTab}
+        onTabChange={store.setActiveTab}
+        cartCount={store.cart.reduce((sum, item) => sum + item.quantity, 0)}
+        onOpenCart={() => store.setIsCartOpen(true)}
+      />
     </div>
   );
 }

@@ -108,73 +108,73 @@ export const UmkmDashboard: React.FC<UmkmDashboardProps> = ({
         </div>
       </div>
 
-      {/* 4 Bento KPI Cards (Smooth Rounded-3xl) */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="p-5 rounded-3xl bg-white border border-slate-200/80 shadow-soft space-y-3">
-          <div className="flex items-center justify-between text-xs text-slate-500 font-semibold">
-            <span>Total Omzet Penjualan</span>
-            <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
-              <DollarSign className="w-4 h-4" />
+      {/* 4 Bento KPI Cards (Smooth Rounded-2xl / Rounded-3xl) */}
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4">
+        <div className="p-3.5 sm:p-5 rounded-2xl sm:rounded-3xl bg-white border border-slate-200/80 shadow-soft space-y-2 sm:space-y-3">
+          <div className="flex items-center justify-between text-[11px] sm:text-xs text-slate-500 font-semibold">
+            <span>Omzet Penjualan</span>
+            <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
+              <DollarSign className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             </div>
           </div>
           <div>
-            <div className="text-2xl font-black text-emerald-700">
+            <div className="text-lg sm:text-2xl font-black text-emerald-700">
               Rp {(analytics.totalRevenue / 1000000).toFixed(1)} Jt
             </div>
-            <div className="flex items-center gap-1 text-[11px] font-bold text-emerald-600 mt-1">
-              <ArrowUpRight className="w-3.5 h-3.5" />
-              <span>+{analytics.revenueGrowthMonth}% dibanding bulan lalu</span>
+            <div className="flex items-center gap-1 text-[10px] sm:text-[11px] font-bold text-emerald-600 mt-0.5 sm:mt-1">
+              <ArrowUpRight className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+              <span>+{analytics.revenueGrowthMonth}% bln lalu</span>
             </div>
           </div>
         </div>
 
-        <div className="p-5 rounded-3xl bg-white border border-slate-200/80 shadow-soft space-y-3">
-          <div className="flex items-center justify-between text-xs text-slate-500 font-semibold">
-            <span>Volume Komoditas Terjual</span>
-            <div className="w-8 h-8 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center">
-              <Package className="w-4 h-4" />
+        <div className="p-3.5 sm:p-5 rounded-2xl sm:rounded-3xl bg-white border border-slate-200/80 shadow-soft space-y-2 sm:space-y-3">
+          <div className="flex items-center justify-between text-[11px] sm:text-xs text-slate-500 font-semibold">
+            <span>Komoditas Terjual</span>
+            <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center">
+              <Package className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             </div>
           </div>
           <div>
-            <div className="text-2xl font-black text-slate-900">
+            <div className="text-lg sm:text-2xl font-black text-slate-900">
               {(analytics.commoditiesSoldKg / 1000).toFixed(1)} Ton
             </div>
-            <div className="text-[11px] text-teal-700 font-semibold mt-1">
-              94.500 Kg kelapa, kopra & olahan
+            <div className="text-[10px] sm:text-[11px] text-teal-700 font-semibold mt-0.5 sm:mt-1 truncate">
+              Kelapa, kopra & olahan
             </div>
           </div>
         </div>
 
-        <div className="p-5 rounded-3xl bg-white border border-slate-200/80 shadow-soft space-y-3">
-          <div className="flex items-center justify-between text-xs text-slate-500 font-semibold">
+        <div className="p-3.5 sm:p-5 rounded-2xl sm:rounded-3xl bg-white border border-slate-200/80 shadow-soft space-y-2 sm:space-y-3">
+          <div className="flex items-center justify-between text-[11px] sm:text-xs text-slate-500 font-semibold">
             <span>Transaksi Selesai</span>
-            <div className="w-8 h-8 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center">
-              <ShoppingBag className="w-4 h-4" />
+            <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center">
+              <ShoppingBag className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             </div>
           </div>
           <div>
-            <div className="text-2xl font-black text-slate-900">
+            <div className="text-lg sm:text-2xl font-black text-slate-900">
               {analytics.totalOrders.toLocaleString('id-ID')}
             </div>
-            <div className="text-[11px] text-amber-700 font-semibold mt-1">
-              Tervalidasi Midtrans Gateway
+            <div className="text-[10px] sm:text-[11px] text-amber-700 font-semibold mt-0.5 sm:mt-1 truncate">
+              Tervalidasi Midtrans
             </div>
           </div>
         </div>
 
-        <div className="p-5 rounded-3xl bg-white border border-slate-200/80 shadow-soft space-y-3">
-          <div className="flex items-center justify-between text-xs text-slate-500 font-semibold">
-            <span>Mitra Tani & Koperasi</span>
-            <div className="w-8 h-8 rounded-xl bg-lime-50 text-lime-700 flex items-center justify-center">
-              <Users className="w-4 h-4" />
+        <div className="p-3.5 sm:p-5 rounded-2xl sm:rounded-3xl bg-white border border-slate-200/80 shadow-soft space-y-2 sm:space-y-3">
+          <div className="flex items-center justify-between text-[11px] sm:text-xs text-slate-500 font-semibold">
+            <span>Mitra Koperasi</span>
+            <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-lime-50 text-lime-700 flex items-center justify-center">
+              <Users className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             </div>
           </div>
           <div>
-            <div className="text-2xl font-black text-slate-900">
-              {analytics.activePartners} Sentra Usaha
+            <div className="text-lg sm:text-2xl font-black text-slate-900">
+              {analytics.activePartners} Sentra
             </div>
-            <div className="text-[11px] text-lime-800 font-semibold mt-1">
-              Binaan UNISI & Disdag Inhil
+            <div className="text-[10px] sm:text-[11px] text-lime-800 font-semibold mt-0.5 sm:mt-1 truncate">
+              Koperasi Petani Parit
             </div>
           </div>
         </div>
@@ -369,7 +369,65 @@ export const UmkmDashboard: React.FC<UmkmDashboardProps> = ({
           </div>
         </div>
 
-        <div className="overflow-x-auto">
+        {/* Mobile Orders Card List (block md:hidden) */}
+        <div className="md:hidden space-y-3">
+          {filteredOrders.length === 0 ? (
+            <div className="text-center py-6 text-xs text-slate-400">Tidak ada pesanan pada filter ini</div>
+          ) : (
+            filteredOrders.map((ord) => (
+              <div key={ord.id} className="p-3.5 rounded-2xl border border-slate-200 bg-white shadow-xs space-y-2.5">
+                <div className="flex items-center justify-between">
+                  <span className="font-mono font-bold text-xs text-slate-900">{ord.orderNumber}</span>
+                  {getFulfillmentBadge(ord.fulfillmentStatus, ord.transportMode)}
+                </div>
+                <div className="text-xs">
+                  <span className="font-bold text-slate-800">{ord.buyerName}</span>
+                  <span className="text-slate-500"> • {ord.destinationDistrict}</span>
+                </div>
+                <div className="bg-slate-50 p-2 rounded-xl space-y-0.5 text-[11px] text-slate-700">
+                  {ord.items.map((it, i) => (
+                    <div key={i}>• {it.quantity} {it.unit} {it.commodityName}</div>
+                  ))}
+                </div>
+                <div className="flex items-center justify-between text-xs pt-1 border-t border-slate-100">
+                  <div>
+                    <span className="text-[10px] text-slate-400 block font-semibold">Total:</span>
+                    <span className="font-extrabold text-emerald-700 text-sm">
+                      Rp {ord.grandTotal.toLocaleString('id-ID')}
+                    </span>
+                  </div>
+                  <div>
+                    {ord.fulfillmentStatus === 'processing' || ord.fulfillmentStatus === 'pending' ? (
+                      <button
+                        onClick={() =>
+                          onUpdateOrderStatus(
+                            ord.id,
+                            ord.transportMode === 'river_water' ? 'shipped_river' : 'shipped_land'
+                          )
+                        }
+                        className="px-3.5 py-1.5 rounded-xl bg-sky-600 active:bg-sky-700 text-white font-bold text-xs shadow-xs"
+                      >
+                        Kirimkan
+                      </button>
+                    ) : ord.fulfillmentStatus === 'shipped_river' || ord.fulfillmentStatus === 'shipped_land' ? (
+                      <button
+                        onClick={() => onUpdateOrderStatus(ord.id, 'delivered')}
+                        className="px-3.5 py-1.5 rounded-xl bg-emerald-600 active:bg-emerald-700 text-white font-bold text-xs shadow-xs"
+                      >
+                        Sampai
+                      </button>
+                    ) : (
+                      <span className="text-xs text-emerald-700 font-bold">✓ Selesai</span>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))
+          )}
+        </div>
+
+        {/* Desktop Table (hidden md:block) */}
+        <div className="hidden md:block overflow-x-auto">
           <table className="w-full text-left text-xs">
             <thead className="bg-slate-50 text-slate-500 uppercase text-[10px] font-bold border-b border-slate-200">
               <tr>
