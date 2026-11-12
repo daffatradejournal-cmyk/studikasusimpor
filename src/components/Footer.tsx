@@ -16,14 +16,14 @@ export const Footer: React.FC<FooterProps> = ({ onSelectTab }) => {
           {/* Col 1 */}
           <div className="space-y-2.5">
             <h4 className="font-bold text-slate-900 text-xs uppercase tracking-wider">
-              LAYANAN PELANGGAN & EKSPOR
+              INFORMASI & SIMULASI SISTEM
             </h4>
             <ul className="space-y-1.5 text-[11px]">
-              <li><span className="hover:text-emerald-700 cursor-pointer transition-colors">Pusat Bantuan PasarTembilahan</span></li>
-              <li><span className="hover:text-emerald-700 cursor-pointer transition-colors">Desk Konsultasi Ekspor B2B & Kontainer</span></li>
-              <li><span className="hover:text-emerald-700 cursor-pointer transition-colors">Metode Pembayaran Midtrans & L/C</span></li>
-              <li><span className="hover:text-emerald-700 cursor-pointer transition-colors">Pelacakan Kargo Sungai & Samudera</span></li>
-              <li><span className="hover:text-emerald-700 cursor-pointer transition-colors">Garansi Komoditas Petani Langsung</span></li>
+              <li><span className="hover:text-emerald-700 cursor-pointer transition-colors">Tentang Prototipe PasarTembilahan</span></li>
+              <li><span className="hover:text-emerald-700 cursor-pointer transition-colors">Simulasi Kuotasi Ekspor B2B & Kontainer</span></li>
+              <li><span className="hover:text-emerald-700 cursor-pointer transition-colors">Simulasi Pembayaran Midtrans Snap</span></li>
+              <li><span className="hover:text-emerald-700 cursor-pointer transition-colors">Model Tarif Kargo Air & Darat Inhil</span></li>
+              <li><span className="hover:text-emerald-700 cursor-pointer transition-colors">Data Contoh Komoditas UMKM Daerah</span></li>
             </ul>
           </div>
 
@@ -104,17 +104,17 @@ export const Footer: React.FC<FooterProps> = ({ onSelectTab }) => {
           {/* Col 4: Pusat Komoditas & Wilayah */}
           <div className="space-y-2.5">
             <h4 className="font-bold text-slate-900 text-xs uppercase tracking-wider">
-              HUB PERDAGANGAN & EKSPOR
+              STUDI KASUS & KONTEKS DAERAH
             </h4>
             <div className="space-y-1 text-[11px]">
               <p className="font-bold text-slate-900 flex items-center gap-1.5">
                 <MapPin className="w-4 h-4 text-emerald-600" />
                 Indragiri Hilir, Riau, Indonesia
               </p>
-              <p className="text-slate-600 font-medium">Sentra Kelapa Terbesar di Dunia</p>
-              <p className="text-emerald-700 font-bold">Pelabuhan Samudera Kuala Enok & Parit 21</p>
+              <p className="text-slate-600 font-medium">Sentra Perkebunan Kelapa Rakyat</p>
+              <p className="text-emerald-700 font-bold">Rute Parit Pasang Surut & Pelabuhan</p>
               <p className="text-slate-500 pt-1">
-                Karya Inisiatif Digitalisasi Rantai Pasok oleh <strong>Muhammad Daffa</strong> • UNISI.
+                Proyek Portofolio Mandiri Rekayasa Sistem Informasi oleh <strong>Muhammad Daffa</strong>.
               </p>
             </div>
           </div>
@@ -122,11 +122,11 @@ export const Footer: React.FC<FooterProps> = ({ onSelectTab }) => {
 
         {/* Bottom Bar */}
         <div className="pt-6 mt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] text-slate-500">
-          <p>© 2026 PasarTembilahan Global. Platform E-Commerce & Perdagangan Komoditas Ekspor Menuju Pasar Dunia.</p>
+          <p>© 2026 PasarTembilahan. Prototipe Studi Kasus Portofolio — Beroperasi dengan Data Contoh & Simulasi Alur Sistem.</p>
           <div className="flex items-center gap-1.5">
-            <span>Dirancang dengan</span>
+            <span>Dirancang sebagai</span>
             <Heart className="w-3.5 h-3.5 text-emerald-600 fill-emerald-600" />
-            <span>untuk memajukan komoditas petani & UMKM Indragiri Hilir mendunia.</span>
+            <span>portofolio pemodelan digitalisasi rantai pasok komoditas daerah.</span>
           </div>
         </div>
       </div>

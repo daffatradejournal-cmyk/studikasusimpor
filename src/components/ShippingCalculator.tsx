@@ -37,7 +37,18 @@ export const ShippingCalculator: React.FC = () => {
         </div>
 
         <div className="px-4 py-2 bg-white/15 backdrop-blur-xs text-white border border-white/20 text-xs font-bold rounded-2xl shrink-0">
-          ✓ Terverifikasi Rute Inhil
+          Model Prototipe Logistik
+        </div>
+      </div>
+
+      {/* Prototype Notice Box */}
+      <div className="p-4 rounded-2xl bg-amber-50 border border-amber-200 text-amber-950 flex items-start gap-3 text-xs">
+        <Info className="w-4 h-4 text-amber-700 shrink-0 mt-0.5" />
+        <div className="space-y-0.5">
+          <span className="font-bold text-amber-900 block">Catatan Prototipe Kalkulator Logistik:</span>
+          <p className="text-amber-800 leading-relaxed">
+            Perhitungan ini menerapkan simulasi rumus dasar: <code className="bg-amber-100 px-1.5 py-0.5 rounded font-mono text-[11px]">Tarif Dasar + (Bobot - 1) × Biaya per Kg</code>. Pilihan titik asal dan tujuan disediakan sebagai demonstrasi antarmuka perancangan (belum terhubung ke API jarak geolokasi riil).
+          </p>
         </div>
       </div>
 

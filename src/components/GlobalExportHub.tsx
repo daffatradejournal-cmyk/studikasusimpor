@@ -87,15 +87,15 @@ export const GlobalExportHub: React.FC = () => {
         <div className="relative z-10 max-w-3xl space-y-2.5 sm:space-y-3">
           <div className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full bg-white/15 backdrop-blur-xs text-lime-300 text-[10px] sm:text-xs font-extrabold uppercase tracking-wider">
             <Globe className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
-            <span>Gerbang Ekspor Komoditas Inhil</span>
+            <span>Simulasi Rantai Distribusi Ekspor B2B (Prototipe)</span>
           </div>
 
           <h1 className="text-xl sm:text-4xl font-extrabold text-white leading-tight">
-            Hub Perdagangan Internasional: Dari Parit Tembilahan Menembus Dunia
+            Model Ekspor Komoditas: Dari Parit Tembilahan Menembus Pasar Global
           </h1>
 
           <p className="text-xs sm:text-sm text-emerald-50 leading-relaxed">
-            Kabupaten Indragiri Hilir memiliki lebih dari <strong>400.000 hektar hamparan perkebunan kelapa</strong> — terluas di dunia. <strong>PasarTembilahan Global</strong> menghubungkan langsung koperasi tani kelapa, pabrik pengolahan turunan, dan UMKM dengan importir serta buyer internasional tanpa perantara tengkulak berlapis.
+            Studi kasus pemodelan sistem informasi komoditas Indragiri Hilir — sentra kelapa terluas di dunia (&gt;400.000 ha). Modul ini mendemonstrasikan antarmuka simulasi <strong>Request for Quotation (RFQ)</strong>, estimasi tonase kontainer, dan alur rantai pasok dari sentra parit ke pelabuhan muat.
           </p>
 
           <div className="pt-1.5 sm:pt-2 flex flex-wrap items-center gap-2 sm:gap-3">
@@ -277,23 +277,23 @@ export const GlobalExportHub: React.FC = () => {
                 className="flex-1 py-3 px-4 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-md transition-all flex items-center justify-center gap-2"
               >
                 <Send className="w-4 h-4" />
-                <span>Ajukan Permintaan Kuotasi Ekspor (RFQ)</span>
+                <span>Simulasikan Permintaan Kuotasi Ekspor (RFQ)</span>
               </button>
               <a
-                href="https://wa.me/6281276448891?text=Halo%20Desk%20Ekspor%20PasarTembilahan,%20saya%20ingin%20konsultasi%20pembelian%20komoditas%20ekspor"
+                href="https://wa.me/6281276448891?text=Halo%20Desk%20Ekspor%20PasarTembilahan,%20saya%20tertarik%20dengan%20prototipe%20studi%20kasus%20komoditas%20ekspor"
                 target="_blank"
                 rel="noreferrer"
                 className="py-3 px-4 rounded-2xl bg-emerald-50 hover:bg-emerald-100 border border-emerald-300 text-emerald-800 font-bold text-xs transition-colors flex items-center justify-center gap-2"
               >
                 <MessageSquare className="w-4 h-4 text-emerald-700" />
-                <span>Hubungi Desk Ekspor via WA</span>
+                <span>Kontak Pengembang via WA</span>
               </a>
             </div>
 
             {rfqSubmitted && (
-              <div className="p-3 bg-emerald-100 text-emerald-900 rounded-xl text-xs font-medium flex items-center gap-2">
+              <div className="p-3 bg-amber-50 border border-amber-200 text-amber-900 rounded-xl text-xs font-medium flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-700 shrink-0" />
-                <span>Permintaan kuotasi berhasil dibuat! Tim Desk Ekspor PasarTembilahan akan memverifikasi spesifikasi muatan dalam 1x24 jam.</span>
+                <span>Simulasi RFQ berhasil diproses di peramban! (Mode Prototipe: data contoh dihitung secara lokal untuk keperluan demonstrasi sistem).</span>
               </div>
             )}
           </form>

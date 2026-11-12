@@ -1,137 +1,149 @@
-# PasarTembilahan — Platform E-Commerce & Rantai Distribusi Komoditas UMKM Indragiri Hilir
-> **Studi Kasus Portofolio Rekayasa Sistem Informasi • Universitas Islam Indragiri (UNISI)**  
-> **Dikembangkan oleh: Muhammad Daffa** (S1 Sistem Informasi)
+# PasarTembilahan — Prototipe E-Commerce & Rantai Distribusi Komoditas UMKM Indragiri Hilir
 
-Aplikasi web Full-Stack modern yang dibangun dengan **Next.js 14 (App Router), TypeScript, Tailwind CSS, Lucide Icons, dan Relational Database Schema (PostgreSQL / MySQL)**.
-
-Proyek ini dirancang secara khusus untuk memecahkan hambatan rantai pasok komoditas lokal di **Kabupaten Indragiri Hilir (Inhil), Riau** — *Negeri Hamparan Kelapa Dunia* — dengan menggantikan perantara tengkulak yang panjang melalui katalog digital multi-kategori, kalkulator logistik perairan sungai pasang surut khas Inhil (Speedboat & Pompong), integrasi pembayaran otomatis **Payment Gateway Midtrans**, serta **Dashboard Analitik bagi UMKM dan Koperasi Tani**.
-
----
-
-## 🎯 Ringkasan Eksekutif & Metrik Portofolio
-
-| Metrik | Spesifikasi & Fokus |
-| :--- | :--- |
-| **Nama Proyek** | **PasarTembilahan** (`pasartembilahan.id`) |
-| **Subtitle** | Platform E-Commerce & Rantai Distribusi Komoditas UMKM Indragiri Hilir |
-| **Focus** | **Business Process & E-Commerce** (Digitalisasi alur niaga komoditas daerah) |
-| **Architecture** | **RESTful API & Relational DB** (Dual-Engine PostgreSQL / MySQL, Webhook Callback) |
-| **Target Komunitas** | **UMKM, Petani Kelapa & Koperasi Daerah** (Indragiri Hilir, Riau) |
-| **Institusi Akademik** | S1 Sistem Informasi — Universitas Islam Indragiri (UNISI), Tembilahan |
+> **Studi Kasus Portofolio Rekayasa Sistem Informasi (Proyek Mandiri)**  
+> **Pengembang**: Muhammad Daffa  
+> **Fokus**: Pemodelan Proses Bisnis, Antarmuka E-Commerce Responsif, dan Cetak Biru Basis Data Relasional  
+> **Repositori**: [https://github.com/daffatradejournal-cmyk/studikasusimpor.git](https://github.com/daffatradejournal-cmyk/studikasusimpor.git)
 
 ---
 
-## 🛑 Masalah Bisnis (Problem Statement)
-
-1. **Rantai Perantara (Tengkulak) yang Terlalu Panjang:**  
-   Petani kelapa dan produsen olahan turunan di Inhil kesulitan menjangkau pembeli nasional maupun internasional secara langsung. Akibatnya, disparitas harga sangat tinggi dan keuntungan terbesar justru dinikmati oleh spekulan perantara.
-2. **Keterbatasan Pencatatan Transaksi & Manajemen Stok Digital:**  
-   Mayoritas UMKM sentra perparitan masih mencatat pesanan di buku nota kertas, memicu salah hitung omzet, ketidaksesuaian stok gudang, dan kesulitan pelacakan piutang.
-3. **Ketidakpastian Biaya Logistik Lintas Perairan Sungai:**  
-   Indragiri Hilir memiliki ribuan parit dan muara pasang surut (*Negeri Seribu Parit*). Pengiriman komoditas dari kecamatan terpencil seperti Mandah, Kuindra, dan Concong membutuhkan moda perahu pompong dan speedboat yang tarifnya tidak terdokumentasi dalam sistem logistik konvensional.
-4. **Verifikasi Pembayaran Manual:**  
-   Transfer bank manual membutuhkan proses cek mutasi rekening satu per satu dan rawan bukti transfer palsu.
+> [!IMPORTANT]
+> ### 📌 DISCLAIMER PROTOTIPE & DATA CONTOH
+> Repositori ini merupakan **prototipe studi kasus portofolio rekayasa sistem informasi** yang beroperasi secara mandiri menggunakan *client-side state* (`useState` & `localStorage`) serta data contoh (*mock data*).  
+> 
+> - **Bukan Platform Komersial Aktif**: Aplikasi ini dirancang untuk mendemonstrasikan perancangan sistem informasi niaga komoditas daerah, bukan toko online operasional langsung.
+> - **Simulasi Transaksi & Pembayaran**: Seluruh alur checkout dan Payment Gateway Midtrans Snap beroperasi dalam **mode simulasi / mock**. Tidak ada pemotongan saldo, integrasi perbankan nyata, atau dana finansial yang diproses.
+> - **Simulasi Permintaan Ekspor (RFQ)**: Formulir pengajuan kuotasi B2B pada modul Global Export Hub adalah antarmuka demonstrasi alur dan tidak terhubung ke eksportir atau otoritas kepabeanan.
+> - **Status Basis Data**: Cetak biru skema database relasional 9 tabel disertakan dalam berkas [`schema.sql`](schema.sql) sebagai spesifikasi perancangan DDL (kompatibel PostgreSQL & MySQL), sementara aplikasi web berjalan menggunakan model data in-memory terstruktur.
 
 ---
 
-## 💡 Solusi Sistem Informasi (Solution Matrix)
+## 🎯 Latar Belakang & Masalah Bisnis (Problem Statement)
 
-1. **Katalog Digital Produk Komoditas Multi-Kategori:**
-   - **Kelapa & Turunan:** Kelapa Butir Kupas Parit 13 (Grade A Super), Kopra Putih Asapan Ekspor, Virgin Coconut Oil (VCO) Murni Cold-Pressed, dan Briket Arang Tempurung Kelapa.
-   - **Perkebunan Lahan Gambut:** Kopi Liberika Gambut Inhil (Notes buah nangka eksotis), Pinang Betara Kering Belah, dan Gula Kelapa Cetak Alami.
-   - **Kuliner Legendaris Inhil:** Kerupuk Amplang Udang Laut Tembilahan, Dodol Nanas Sungai Salak, Lempok Durian Asli Mandah.
-   - **Kerajinan Sabut & Souvenir:** Tanjak Melayu Riau Tenun Songket Mahkota, Mangkuk Tempurung Kelapa Polesan Halus Food-Grade.
-2. **Kalkulator & Estimasi Ongkos Kirim Realistis (Jalur Sungai & Darat):**
-   - **Armada Air Perairan Inhil:** Speedboat Express (antar-kecamatan parit sungai) & Kapal Pompong Kargo Rakyat Dermaga Parit 21 (hemat untuk tonase massal).
-   - **Armada Darat & Nasional:** Truk Kargo J&T Cargo Lintas Timur Sumatera, JNE Reguler Express, dan armada ekspor Pelabuhan Samudera Kuala Enok ke Batam/Singapura.
-3. **Integrasi Pembayaran Otomatis Midtrans Payment Gateway:**
-   - Simulator Midtrans Snap responsif mendukung **QRIS Instant (GoPay, ShopeePay, OVO, Dana)** dan **Virtual Account Bank Riau Kepri Syariah, BCA, & Mandiri**.
-   - Callback webhook `/api/payment` mengubah status pembayaran menjadi `paid` dan memicu update status fulfillment secara atomik.
-4. **Dashboard Analitik UMKM & Koperasi Sentra Tani:**
-   - 4 Kartu KPI: Total Omzet Penjualan (Rp), Volume Komoditas Terdistribusi (Ton/Kg), Transaksi Selesai, dan Jumlah Mitra UMKM Aktif.
-   - Grafik Tren Pertumbuhan Omzet Bulanan (Mei - Oktober 2026).
-   - Distribusi Pangsa Komoditas Unggulan.
-   - Sistem Peringatan Dini Stok Kritis Gudang dengan tombol **"Restock Cepat (+50 Unit)"**.
-   - Tabel Manajemen Pesanan & Logistik Rantai Distribusi.
+Kabupaten Indragiri Hilir (Inhil), Provinsi Riau, dijuluki sebagai **Negeri Hamparan Kelapa Dunia** dan **Negeri Seribu Parit**, dengan luasan perkebunan kelapa rakyat mencapai lebih dari 400.000 hektar. Meskipun memiliki potensi komoditas yang masif (kelapa butir, kopra putih, virgin coconut oil, kopi liberika lahan gambut, dan kuliner pesisir), rantai tata niaga daerah menghadapi sejumlah tantangan struktural:
+
+1. **Rantai Perantara (Tengkulak) yang Panjang**:  
+   Petani dan pengrajin lokal sering kali bergantung pada spekulan perantara bertingkat sehingga harga di tingkat petani tertekan, sementara nilai tambah ekspor tidak dinikmati secara optimal oleh produsen lokal.
+2. **Keterbatasan Pencatatan Transaksi & Manajemen Stok Digital**:  
+   Banyak unit usaha mikro dan koperasi sentra perparitan masih mengandalkan pencatatan pembukuan konvensional, menimbulkan potensi selisih stok gudang dan ketidaktepatan pelaporan omzet.
+3. **Ketidakpastian Biaya Logistik Multimodal Perairan Sungai**:  
+   Kondisi geografis perairan pasang surut membutuhkan moda perahu pompong sungai dan armada speedboat cepat antar-parit muara yang tarifnya belum terstandarisasi dalam sistem e-commerce nasional.
+4. **Kebutuhan Integrasi Pembayaran Digital Terverifikasi**:  
+   Perlunya simulasi mekanisme verifikasi transaksi otomatis (QRIS dan Virtual Account) untuk menggantikan konfirmasi mutasi rekening manual.
 
 ---
 
-## 🛠️ Tech Stack & Arsitektur
+## ⚖️ Lembar Verifikasi: Fitur Nyata vs Fitur Simulasi
 
-- **Frontend & App Framework**: Next.js 14 (App Router) + React 18
-- **Design System Source of Truth**: Shopee.com Design System (`DESIGN.md`)
-  - Primary colors: `#EE4D2D`, `#D0011B`, `#FFCE3D`, `#00BFA5`, `#066BC8`, `#F05D40`, `#E2492B`, `#FACAC0`
-  - Neutral colors: `#FFFFFF`, `#000000`, `#F5F5F5`, `#FAFAFA`, `#555555`, `#5A5A5A`, `#222222`, `#FBFBFB`, `#CCCCCC`
-  - Typography Scale: Roboto & Titillium Web (h1: 32px, h2: 20px, h3: 16px, body: 14px)
-  - Radii Tokens: `2px`, `.125rem`, `3px`, `4px`
-- **Bahasa Pemrograman**: TypeScript (Type-Safe Contracts)
-- **Styling & UI Design**: Tailwind CSS v3.4 + Shopee Semantic Tokens + Lucide Icons
-- **Database Architecture**: Relational Database Schema (`schema.sql` 9 Normalized Tables)
-- **API Engine**: Next.js Route Handlers (RESTful API Standards)
-- **Payment Engine**: Midtrans Snap Sandbox API Architecture
-- **State Management**: Reactive Client Store with persistent fallback (`localStorage`)
+Sebagai komitmen transparansi rekayasa perangkat lunak, berikut rincian modul yang berfungsi interaktif di sisi klien versus modul yang bersifat simulasi/tampilan:
+
+| Modul / Fitur | Status di Kode | Mekanisme & Penjelasan Teknis |
+| :--- | :---: | :--- |
+| **Katalog Komoditas Multi-Kategori** | **Berfungsi Nyata** | Filter kategori, filter teks pencarian, pengurutan harga/terlaris/rating, dan modal spesifikasi detail produk beroperasi reaktif di browser. |
+| **Keranjang Belanja (Cart)** | **Berfungsi Nyata** | Tambah/kurang kuantitas, validasi batas stok gudang, hapus item, dan sinkronisasi otomatis ke `localStorage`. |
+| **Form Checkout & Pemotongan Stok** | **Berfungsi Nyata (Client)** | Validasi form identitas pembeli & kurir; pembuatan ID pesanan unik (`ORD-INHIL-...`); mutasi pengurangan stok komoditas dan pembaruan metrik omzet secara lokal. |
+| **Seller Centre (Stok & Pesanan)** | **Berfungsi Nyata (Client)** | Filter status pesanan ("Dikemas", "Dikirim", "Selesai"); tombol pembaruan status pengiriman dan tombol restock stok menipis (`+50 Unit`) langsung memutakhirkan state dan `localStorage`. |
+| **Tombol Reset Data Demo** | **Berfungsi Nyata** | Menghapus kunci penyimpanan browser dan mengembalikan seluruh data barang, pesanan, dan keranjang belanja ke kondisi mock awal. |
+| **Dokumentasi Blueprint & Viewer SQL** | **Berfungsi Nyata** | Penampil teks interaktif untuk diagram arsitektur BPMN, alur data, dan berkas `schema.sql` (9 tabel DDL). |
+| **Kalkulator Kargo Air & Darat** | **Simulasi Formula** | Menghitung ongkir via rumus matematika linier: $\text{Base Cost} + (\text{Bobot} - 1) \times \text{Cost/Kg}$. Pilihan dropdown titik asal dan tujuan bersifat antarmuka perancangan (belum terhubung ke API matriks jarak dinamis). |
+| **Payment Gateway Midtrans Snap** | **Simulasi / Mock** | Tampilan QRIS (SVG mock) dan nomor Virtual Account tiruan. Tombol pembayaran mengeksekusi simulasi timer 1 detik untuk mengubah status pesanan menjadi `paid` tanpa komunikasi ke server Midtrans. |
+| **Hub Ekspor B2B (Formulir RFQ)** | **Simulasi Tampilan** | Menghitung estimasi nilai kontrak kontainer (20ft / 40ft) di UI; tombol kirim RFQ memunculkan notifikasi sukses berbasis timer lokal tanpa pengiriman data ke server eksternal. |
+| **Grafik & Metrik Tren Penjualan** | **Tampilan Data Contoh** | Grafik batang bulanan dan angka statistik potensi (1.2 Miliar butir kelapa, 38 sentra mitra) merupakan data representasi statis. |
+| **Autentikasi Pengguna & Role** | **Tidak Ada** | Tidak menggunakan sistem login / JWT / session. Semua modul dapat diakses langsung untuk keperluan evaluasi prototipe. |
+| **Koneksi Database Fisik** | **Tidak Ada** | Tidak terhubung ke server database aktif (menggunakan in-memory store dan `localStorage`). |
+
+---
+
+## 🛠️ Tech Stack yang Terverifikasi & Akurat
+
+Proyek ini dibangun menggunakan teknologi modern dengan arsitektur berbasis komponen:
+
+- **Frontend Framework**: [Next.js 14.2 (App Router)](https://nextjs.org/)
+- **UI Library**: [React 18](https://react.dev/)
+- **Bahasa Pemrograman**: [TypeScript 5](https://www.typescriptlang.org/) (Strict Mode & Type Safety)
+- **Styling Engine**: [Tailwind CSS v3.4](https://tailwindcss.com/) dengan tema warna *Fresh Leaf Green* (`#16A34A`, `#22C55E`, `#84CC16`)
+- **Iconography**: [Lucide React](https://lucide.dev/)
+- **State Management**: Reactive Client Store kustom (`src/lib/store.ts`) dengan *fail-safe* `localStorage`
+- **Data Mock**: In-Memory Mock Dataset (`src/lib/mockData.ts`)
+- **API Simulation**: Next.js Route Handlers (`src/app/api/*`)
+- **Database Blueprint**: 9 Tabel Relasional DDL Normalisasi 3NF ([`schema.sql`](schema.sql))
 
 ---
 
 ## 📂 Struktur Direktori Proyek
 
 ```text
-├── DESIGN.md                          # Design System Source of Truth (Shopee.com tokens)
-├── schema.sql                         # Skema Relational Database DDL (PostgreSQL & MySQL)
-├── package.json                       # Konfigurasi dependensi Next.js & scripts
-├── tailwind.config.js                 # Konfigurasi Shopee tokens & radii
+├── .env.example                       # Template konfigurasi environment (untuk integrasi masa depan)
+├── .gitignore                         # Mengamankan seluruh file environment (*.env*) dan secret
+├── DESIGN.md                          # Panduan token desain antarmuka
+├── LICENSE                            # Lisensi sumber terbuka MIT
+├── README.md                          # Dokumentasi resmi & lembar fakta proyek
+├── package.json                       # Konfigurasi package, scripts, dan dependencies
+├── schema.sql                         # Cetak biru 9 tabel Relational Database DDL (PostgreSQL & MySQL)
+├── tailwind.config.js                 # Konfigurasi Tailwind CSS & warna kustom
 ├── tsconfig.json                      # Konfigurasi TypeScript paths
 ├── src/
 │   ├── app/
-│   │   ├── api/
-│   │   │   ├── commodities/route.ts   # GET & filter katalog komoditas
-│   │   │   ├── orders/route.ts        # GET & POST pembuatan pesanan komoditas
-│   │   │   ├── shipping/route.ts      # POST kalkulasi ongkir jalur air/darat
-│   │   │   ├── payment/route.ts       # POST Midtrans webhook callback simulation
-│   │   │   └── analytics/route.ts     # GET KPI & analitik omzet UMKM
-│   │   ├── globals.css                # Custom scrollbar, animations & tokens
-│   │   ├── layout.tsx                 # Root layout dengan SEO metadata
-│   │   └── page.tsx                   # Main Dashboard Single-Page Application
+│   │   ├── api/                       # API Route Handlers (RESTful Architecture)
+│   │   │   ├── analytics/route.ts     # Endpoint GET analitik omzet UMKM
+│   │   │   ├── commodities/route.ts   # Endpoint GET & filter katalog komoditas
+│   │   │   ├── orders/route.ts        # Endpoint GET & POST pembuatan pesanan
+│   │   │   ├── payment/route.ts       # Endpoint POST simulasi webhook Midtrans
+│   │   │   └── shipping/route.ts      # Endpoint POST kalkulasi ongkos kirim
+│   │   ├── globals.css                # Style global, animasi, dan custom utility
+│   │   ├── layout.tsx                 # Root layout aplikasi & metadata SEO
+│   │   └── page.tsx                   # Single Page Application utama
 │   ├── components/
-│   │   ├── Header.tsx                 # Navbar sticky, search, UNISI badge & keranjang
-│   │   ├── NavigationTabs.tsx         # Tab switcher (Katalog, Dashboard, Ongkir, SQL)
-│   │   ├── CommodityCatalog.tsx       # Grid kartu komoditas, filter, & search
-│   │   ├── ProductDetailModal.tsx     # Modal rincian spesifikasi, grade, & sentra asal
-│   │   ├── CartDrawer.tsx             # Drawer keranjang belanja & form logistik Inhil
-│   │   ├── MidtransModal.tsx          # Simulator popup pembayaran Midtrans Snap
-│   │   ├── ShippingCalculator.tsx     # Kalkulator rute sungai (pompong/speedboat) & darat
-│   │   ├── UmkmDashboard.tsx          # Dashboard analitik omzet, chart & restock
 │   │   ├── ArchitectureModal.tsx      # Modal blueprint arsitektur sistem & REST API
-│   │   ├── SqlSchemaViewer.tsx        # Syntax viewer schema.sql dengan 9 tabel DDL
-│   │   └── Footer.tsx                 # Footer resmi dengan identitas UNISI & Inhil
+│   │   ├── CartDrawer.tsx             # Drawer keranjang belanja & form checkout
+│   │   ├── CommodityCatalog.tsx       # Grid kartu komoditas responsif 2-kolom mobile
+│   │   ├── Footer.tsx                 # Footer resmi dengan identitas prototipe
+│   │   ├── GlobalExportHub.tsx        # Modul simulasi ekspor B2B & Request for Quotation
+│   │   ├── Header.tsx                 # Banner prototipe, navbar, pencarian, & tombol reset
+│   │   ├── MidtransModal.tsx          # Modal simulator pembayaran Midtrans Snap (QRIS / VA)
+│   │   ├── MobileBottomNav.tsx        # Fixed bottom navigation bar ramah jempol untuk smartphone
+│   │   ├── NavigationTabs.tsx         # Tab switcher (Katalog, Ekspor, Kargo, Seller)
+│   │   ├── ProductDetailModal.tsx     # Bottom sheet modal rincian spesifikasi & grade produk
+│   │   ├── ShippingCalculator.tsx     # Kalkulator rute kargo air (pompong/speedboat) & darat
+│   │   ├── SqlSchemaViewer.tsx        # Penampil berkas schema.sql interaktif
+│   │   └── UmkmDashboard.tsx          # Dashboard Seller Centre (omzet, restock stok, & status order)
 │   └── lib/
-│       ├── types.ts                   # Domain TypeScript interfaces
-│       ├── mockData.ts                # Data autentik komoditas, UMKM, & rute Inhil
-│       └── store.ts                   # State store reaktif & sinkronisasi data
+│       ├── mockData.ts                # Data komoditas, UMKM, rute logistik, dan analitik
+│       ├── store.ts                   # Hook manajemen state reaktif & sinkronisasi local storage
+│       └── types.ts                   # Definisi tipe domain TypeScript (TypeScript Interfaces)
 ```
 
 ---
 
-## 🚀 Panduan Menjalankan Proyek
+## 🚀 Panduan Menjalankan Proyek Secara Lokal
 
-### 1. Kloning & Masuk ke Folder
+Ikuti langkah-langkah di bawah ini untuk menjalankan prototipe di komputer lokal:
+
+### 1. Kloning Repositori
 ```bash
 git clone https://github.com/daffatradejournal-cmyk/studikasusimpor.git
-cd "studi kasus pertama porto pantai"
+cd "studikasusimpor"
 ```
 
-### 2. Install Dependensi
+### 2. Salin Berkas Environment (Opsional)
+Aplikasi dapat berjalan langsung tanpa berkas `.env`, namun berkas template telah disediakan untuk kebutuhan pengembangan lebih lanjut:
+```bash
+cp .env.example .env.local
+```
+
+### 3. Instal Dependensi
 ```bash
 npm install
 ```
 
-### 3. Jalankan Development Server
+### 4. Jalankan Development Server
 ```bash
 npm run dev
 ```
-Buka browser Anda di: **[http://localhost:3000](http://localhost:3000)**
+Buka peramban Anda di alamat: **[http://localhost:3000](http://localhost:3000)**
 
-### 4. Build untuk Produksi
+### 5. Uji Build Produksi
+Untuk memvalidasi bahwa seluruh komponen TypeScript dan styling bebas error kompilasi:
 ```bash
 npm run build
 npm run start
@@ -139,40 +151,39 @@ npm run start
 
 ---
 
-## 🗄️ Menghubungkan ke Database Relasional Asli (Opsional)
+## 🗄️ Cetak Biru Basis Data Relasional (`schema.sql`)
 
-Proyek ini sudah dilengkapi file `schema.sql` siap pakai. Anda dapat mengeksekusinya ke database **PostgreSQL** atau **MySQL**:
+Meskipun aplikasi saat ini berjalan menggunakan in-memory state, berkas [`schema.sql`](schema.sql) telah disiapkan secara lengkap untuk skenario penerapan basis data relasional fisik (kompatibel dengan **PostgreSQL** dan **MySQL**):
 
-```bash
-# Untuk PostgreSQL:
-psql -U postgres -d pasartembilahan_db -f schema.sql
-
-# Untuk MySQL:
-mysql -u root -p pasartembilahan_db < schema.sql
+```sql
+-- Contoh struktur 9 entitas yang dimodelkan:
+1. users                 -- Pengguna sistem (pembeli, pedagang UMKM, admin koperasi)
+2. merchants             -- Profil sentra usaha, NIB, sertifikasi halal, dan dermaga asal
+3. categories            -- Klasifikasi komoditas (kelapa, olahan gambut, kuliner, kerajinan)
+4. commodities           -- Master data komoditas, stok gudang, berat, dan grade mutu
+5. shipping_routes       -- Matriks tarif armada air (speedboat/pompong) dan kargo darat
+6. orders                -- Header transaksi pesanan dan status pemenuhan
+7. order_items           -- Rincian komoditas dan subtotal per item
+8. payment_transactions  -- Log status transaksi payment gateway
+9. stock_movements       -- Riwayat mutasi arus keluar-masuk stok gudang
 ```
-
-Tabel utama yang dibuat mencakup:
-1. `users` — Data pembeli, pedagang, dan administrator koperasi
-2. `merchants` — Profil legalitas sentra UMKM (NIB, Sertifikasi Halal MUI, P-IRT, Dermaga Parit)
-3. `categories` — Kategori komoditas (Kelapa, Perkebunan Gambut, Kuliner, Kerajinan)
-4. `commodities` — Detail produk, SKU unik, stok gudang, harga, bobot fisik, dan grade mutu
-5. `shipping_routes` — Rute moda perairan (pompong/speedboat) dan armada jalan darat
-6. `orders` — Header pesanan dan status pemenuhan rantai pasok
-7. `order_items` — Item rincian produk yang dipesan
-8. `payment_transactions` — Rekaman transaksi payment gateway Midtrans
-9. `stock_movements` — Ledger audit trail mutasi arus keluar-masuk komoditas
 
 ---
 
-## 👨‍💻 Profil Pengembang
+## 👨‍💻 Peran Pengembang & Informasi Portofolio
 
-- **Nama**: Muhammad Daffa
-- **Program Studi**: S1 Sistem Informasi
-- **Universitas**: Universitas Islam Indragiri (UNISI)
-- **Domisili**: Tembilahan, Kabupaten Indragiri Hilir, Riau, Indonesia
-- **Fokus Keahlian**: Web Architecture, Database Systems, Business Process Analysis, Full-Stack Development
+Proyek ini dikembangkan secara **mandiri (proyek independen)** oleh:
+
+* **Nama Pengembang**: Muhammad Daffa
+* **Institusi / Latar Belakang**: S1 Sistem Informasi
+* **Peran dalam Proyek**:
+  - **Business Process Analyst**: Memetakan kendala rantai pasok komoditas lokal Indragiri Hilir ke dalam model e-commerce dan logistik perairan.
+  - **UI/UX Designer**: Merancang antarmuka ramah pengguna dengan skema warna hijau daun alami (*fresh leaf green*) dan tata letak responsif ramah layar ponsel (*mobile bottom navigation & bottom sheet modals*).
+  - **Database Architect**: Menyusun skema relasional 9 tabel ternormalisasi (3NF) dalam berkas `schema.sql`.
+  - **Full-Stack / Frontend Developer**: Mengimplementasikan antarmuka interaktif menggunakan Next.js 14, TypeScript, Tailwind CSS, dan custom reactive client store.
 
 ---
 
 ## 📄 Lisensi
-Dirilis di bawah lisensi [MIT](LICENSE). Dikembangkan dengan bangga untuk memajukan potensi ekonomi komoditas lokal Indragiri Hilir.
+
+Proyek ini didistribusikan di bawah lisensi terbuka [MIT License](LICENSE).

@@ -90,13 +90,13 @@ export const CommodityCatalog: React.FC<CommodityCatalogProps> = ({
           <div className="space-y-2 sm:space-y-3 relative z-10 max-w-xl">
             <div className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-0.5 sm:py-1 bg-white/20 backdrop-blur-xs text-white text-[10px] sm:text-xs font-bold rounded-full">
               <Globe className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-lime-300" />
-              <span>Pasar Komoditas Global & Ekspor Indragiri Hilir</span>
+              <span>Prototipe Katalog Komoditas & Simulasi Rantai Pasok Inhil</span>
             </div>
             <h1 className="text-lg sm:text-3xl font-extrabold text-white leading-tight">
-              Komoditas Tembilahan <span className="text-lime-300">Menembus Pasar Dunia</span>
+              Komoditas Tembilahan <span className="text-lime-300">Menembus Pasar Global</span>
             </h1>
             <p className="text-[11px] sm:text-sm text-emerald-50 leading-relaxed line-clamp-3 sm:line-clamp-none">
-              Platform e-commerce & rantai pasok digital: Menghubungkan langsung petani kelapa, sentra kopra putih, produsen VCO, kopi liberika gambut, dan UMKM Tembilahan ke pembeli nasional serta importir mancanegara.
+              Studi kasus perancangan e-commerce & rantai pasok: Memodelkan sistem katalog digital untuk komoditas kelapa, kopra putih, virgin coconut oil (VCO), kopi liberika gambut, dan UMKM Indragiri Hilir dengan data contoh.
             </p>
           </div>
 

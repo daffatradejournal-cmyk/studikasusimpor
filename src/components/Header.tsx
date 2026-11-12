@@ -35,32 +35,48 @@ export const Header: React.FC<HeaderProps> = ({
 
   return (
     <header className="sticky top-0 z-40 w-full leaf-header-bg text-white shadow-header">
+      {/* Prototype Disclaimer Banner */}
+      <div className="bg-amber-400 text-slate-950 px-3 py-1 text-[11px] font-semibold border-b border-amber-500/40">
+        <div className="max-w-7xl mx-auto flex items-center justify-between gap-2">
+          <div className="flex items-center gap-2 truncate">
+            <span className="px-1.5 py-0.5 rounded bg-slate-950 text-amber-300 text-[9px] sm:text-[10px] font-black uppercase tracking-wider shrink-0">
+              Prototipe Studi Kasus
+            </span>
+            <span className="truncate">
+              Aplikasi Portofolio Rekayasa Sistem Informasi — Beroperasi dengan <strong>data contoh & simulasi alur</strong>.
+            </span>
+          </div>
+          <button
+            onClick={onResetData}
+            title="Reset simulasi ke data awal"
+            className="shrink-0 flex items-center gap-1 text-[10px] font-bold text-slate-900 hover:text-slate-950 bg-amber-300/80 hover:bg-amber-300 px-2 py-0.5 rounded transition-colors"
+          >
+            <RefreshCw className="w-3 h-3" />
+            <span>Reset Demo</span>
+          </button>
+        </div>
+      </div>
+
       {/* Top Bar */}
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-1.5 flex items-center justify-between text-xs border-b border-white/15">
         <div className="flex items-center gap-2">
           <div className="flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/20 text-white font-bold text-[10px] sm:text-[11px] shadow-xs">
             <Globe className="w-3 h-3 text-lime-300 shrink-0" />
-            <span className="truncate max-w-[170px] sm:max-w-none">Pasar Komoditas & Ekspor Global</span>
+            <span className="truncate max-w-[170px] sm:max-w-none">Simulasi Rantai Pasok Komoditas</span>
           </div>
           <span className="text-white/40 hidden sm:inline">|</span>
           <span className="hidden sm:flex items-center gap-1 text-emerald-100 text-[11px]">
             <MapPin className="w-3 h-3 text-lime-300" />
-            Tembilahan, Indragiri Hilir — Gerbang Ekspor Parit 21 & Pelabuhan Kuala Enok
+            Model Wilayah: Indragiri Hilir (Dermaga Parit 21 & Pelabuhan Kuala Enok)
           </span>
         </div>
 
         <div className="flex items-center gap-2 sm:gap-3 text-[10px] sm:text-[11px]">
-          <div className="hidden md:flex items-center gap-1.5 bg-white/10 px-2.5 py-0.5 rounded-full text-emerald-100 font-medium">
-            <span>🌏 Jalur Ekspor: SGP • MYS • CHN • MEA</span>
-          </div>
-          <span className="text-white/40 hidden md:inline">|</span>
           <button
-            onClick={onResetData}
-            title="Reset simulasi ke data awal"
-            className="flex items-center gap-1 text-white/90 hover:text-white transition-colors py-0.5 px-1.5 rounded-lg bg-white/10 sm:bg-transparent"
+            onClick={onOpenArchitecture}
+            className="flex items-center gap-1.5 bg-white/10 hover:bg-white/20 px-2.5 py-0.5 rounded-full text-white font-semibold transition-colors"
           >
-            <RefreshCw className="w-3 h-3" />
-            <span>Reset Demo</span>
+            <span>📐 Blueprint Arsitektur</span>
           </button>
         </div>
       </div>
@@ -82,11 +98,11 @@ export const Header: React.FC<HeaderProps> = ({
                   Pasar<span className="text-lime-300">Tembilahan</span>
                 </span>
                 <span className="bg-lime-400 text-emerald-950 font-black text-[9px] sm:text-[10px] px-1.5 sm:px-2 py-0.5 rounded-full uppercase tracking-wider">
-                  EKSPOR
+                  PROTOTIPE
                 </span>
               </div>
               <p className="text-[10px] sm:text-[11px] text-emerald-100 font-medium hidden sm:block mt-0.5">
-                Penghubung Komoditas Kelapa & UMKM Tembilahan ke Pasar Dunia
+                Model Rantai Pasok Komoditas Kelapa & UMKM Indragiri Hilir (Data Contoh)
               </p>
             </div>
           </div>

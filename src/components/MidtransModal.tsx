@@ -69,13 +69,13 @@ export const MidtransModal: React.FC<MidtransModalProps> = ({
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h3 className="font-bold text-sm tracking-wide">Midtrans Snap Payment Gateway</h3>
-                <span className="text-[10px] bg-white/20 text-white px-2 py-0.5 rounded-full font-mono">
-                  SANDBOX
+                <h3 className="font-bold text-sm tracking-wide">Simulator Midtrans Snap</h3>
+                <span className="text-[10px] bg-amber-400 text-slate-950 px-2 py-0.5 rounded-full font-bold">
+                  SIMULASI PROTOTIPE
                 </span>
               </div>
               <p className="text-[11px] text-emerald-100">
-                Merchant: PasarTembilahan Hub Indragiri Hilir
+                Data Contoh • Tidak Ada Pemotongan Saldo / Uang Asli
               </p>
             </div>
           </div>
@@ -244,17 +244,17 @@ export const MidtransModal: React.FC<MidtransModalProps> = ({
               {isProcessing ? (
                 <>
                   <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                  <span>Memproses Webhook Midtrans...</span>
+                  <span>Memproses Simulasi Callback Webhook...</span>
                 </>
               ) : (
                 <>
                   <CheckCircle2 className="w-4 h-4" />
-                  <span>Simulasikan Pembayaran Berhasil (HTTP 200)</span>
+                  <span>Simulasikan Pembayaran Berhasil (HTTP 200 Mock)</span>
                 </>
               )}
             </button>
             <p className="text-[11px] text-center text-slate-400">
-              Menstimulasikan Midtrans Callback URL: `/api/payment`
+              Simulasi alur callback payment gateway: status pesanan diperbarui menjadi lunas secara lokal.
             </p>
           </div>
         </div>

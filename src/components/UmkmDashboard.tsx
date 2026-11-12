@@ -91,20 +91,20 @@ export const UmkmDashboard: React.FC<UmkmDashboardProps> = ({
           <div className="flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
             <span className="text-xs font-bold text-emerald-700 uppercase tracking-wider">
-              Seller Centre & Monitoring Mitra Tani
+              Seller Centre & Monitoring Mitra Tani (Simulasi Prototipe)
             </span>
           </div>
           <h2 className="text-xl sm:text-2xl font-black text-slate-900 mt-1">
             Dashboard Analitik & Koperasi Komoditas Inhil
           </h2>
           <p className="text-xs text-slate-500 mt-0.5">
-            Monitoring omzet penjualan, perputaran stok gudang, dan pelacakan ekspedisi komoditas daerah.
+            Simulasi visualisasi omzet penjualan, perputaran stok komoditas, dan pelacakan status logistik pesanan (menggunakan data contoh).
           </p>
         </div>
 
-        <div className="flex items-center gap-2 text-xs font-bold px-4 py-2 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-800">
-          <Building className="w-4 h-4 text-emerald-600" />
-          <span>Hub Mitra: Koperasi & UMKM Indragiri Hilir</span>
+        <div className="flex items-center gap-2 text-xs font-bold px-4 py-2 rounded-2xl bg-amber-50 border border-amber-200 text-amber-900">
+          <Building className="w-4 h-4 text-amber-600" />
+          <span>Simulasi Data UMKM & Mitra Tani</span>
         </div>
       </div>
 
